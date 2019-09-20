@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction;
+package br.com.josef.movieaddiction.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import br.com.josef.movieaddiction.view.MainActivity;
+import br.com.josef.movieaddiction.R;
 
 public class SplashActivity extends AppCompatActivity {
     private ImageView imgSplash;
