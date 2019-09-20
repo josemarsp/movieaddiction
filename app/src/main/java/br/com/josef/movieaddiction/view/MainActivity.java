@@ -1,8 +1,10 @@
-package br.com.josef.movieaddiction;
+package br.com.josef.movieaddiction.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.com.josef.movieaddiction.R;
 
 public class MainActivity extends AppCompatActivity {
 
