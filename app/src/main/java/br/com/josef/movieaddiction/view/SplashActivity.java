@@ -16,10 +16,13 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView imgSplash;
     private Timer timer = new Timer();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        getSupportActionBar().hide(); // tira a AppBar
 
         imgSplash = findViewById(R.id.img_splash_id);
 
