@@ -1,9 +1,7 @@
 package br.com.josef.movieaddiction.model;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class FilmesNaoAssistidosModel {
     private ImageView capaDoFilme, estrelaRating;
@@ -18,7 +16,7 @@ public class FilmesNaoAssistidosModel {
         this.notaDoFilme = notaDoFilme;
     }
 
-    public ImageView getCapaDoFilme() {
+    public Drawable getCapaDoFilme() {
         return capaDoFilme;
     }
 
@@ -26,7 +24,7 @@ public class FilmesNaoAssistidosModel {
         this.capaDoFilme = capaDoFilme;
     }
 
-    public ImageView getEstrelaRating() {
+    public Drawable getEstrelaRating() {
         return estrelaRating;
     }
 
