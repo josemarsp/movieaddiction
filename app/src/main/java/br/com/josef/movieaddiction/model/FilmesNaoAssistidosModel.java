@@ -5,12 +5,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class VideosNaoAssistidosModel {
+public class FilmesNaoAssistidosModel {
     private ImageView capaDoFilme, estrelaRating;
     private String tituloDoFilme, descricaoDoFilme;
     private double notaDoFilme;
 
-    public VideosNaoAssistidosModel(ImageView capaDoFilme, ImageView estrelaRating, String tituloDoFilme, String descricaoDoFilme, double notaDoFilme){
+    public FilmesNaoAssistidosModel(ImageView capaDoFilme, ImageView estrelaRating, String tituloDoFilme, String descricaoDoFilme, double notaDoFilme){
         this.capaDoFilme = capaDoFilme;
         this.estrelaRating = estrelaRating;
         this.tituloDoFilme = tituloDoFilme;
