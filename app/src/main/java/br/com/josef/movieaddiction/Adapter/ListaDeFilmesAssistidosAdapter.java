@@ -1,21 +1,12 @@
 package br.com.josef.movieaddiction.Adapter;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
-import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.model.FilmesNaoAssistidosModel;
-
-public class ListaDeFilmesNaoAssistidosAdapter extends RecyclerView.Adapter<ListaDeFilmesNaoAssistidosAdapter.ViewHolder>{
+public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDeFilmesAssistidosAdapter.ViewHolder>{
 
 
     @NonNull

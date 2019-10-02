@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ListaDeFilmesNaoAssistidosFragment"
+    tools:context=".view.ListaDeFilmeAssistidosFragment"
     android:background="@color/background_black">
 
     <ImageView
@@ -12,13 +12,13 @@
         android:layout_width="109dp"
         android:layout_height="70dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/nao_assistido"
+        android:src="@drawable/assistido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Não Assistido"
+        android:text="Assistido"
         android:textColor="@color/purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +41,10 @@
         android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_fragment_filmes_nao_assistidos_id"
+        android:id="@+id/recyclerView_fragment_filmes_assistidos_id"
         android:layout_width="398dp"
         android:layout_height="542dp"
         android:layout_marginTop="8dp"
