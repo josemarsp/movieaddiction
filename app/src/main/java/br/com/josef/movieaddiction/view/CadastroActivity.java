@@ -57,7 +57,7 @@ public class CadastroActivity extends AppCompatActivity {
 
 
                     //Criando uma nova instancia do tipo Intent
-                    Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CadastroActivity.this, PrincipalActivity.class);
 
                     //Criando uma nova instancia do Bundle
                     Bundle bundle = new Bundle();
