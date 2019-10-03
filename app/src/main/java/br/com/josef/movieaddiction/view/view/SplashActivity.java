@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.view;
+package br.com.josef.movieaddiction.view.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

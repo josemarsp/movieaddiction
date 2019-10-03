@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">MovieAddiction</string>
     <string name="title_activity_splash">SplashActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</string>
+    <string name="sobre_autor">Breve texto que traz detalhes sobre o ator, de acordo com a pesquisa do usuário.</string>
+    <string name="sobre_filme">Pequeno texto que conta qual é a história do filme, de acordo com a pesquisa do usuário.</string>
+    <string name="frase_filme">Uma frase legal e chamativa sobre o filme.</string>
 </resources>
