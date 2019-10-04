@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/background_black">
+
+    <ImageView
+        android:id="@+id/iconePaparazzi"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/paparazzi" />
+
+    <TextView
+        android:id="@+id/paparazzi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/purple"
+        android:text="Paparazzi" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/purple"
+        android:layout_marginTop="100dp"
+        android:focusable="false" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="110dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/fotoAtor"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="290dp"
+            android:layout_marginRight="290dp"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ian" />
+
+        <TextView
+            android:id="@+id/nomeAtor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:text="Nome do ator"
+            android:textColor="@color/purple"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fotoAtor"
+            app:layout_constraintVertical_bias="0.13"/>
+
+        <TextView
+            android:id="@+id/sobreAtor"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/sobre_autor"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/fotoAtor"
+            app:layout_constraintTop_toBottomOf="@+id/nomeAtor" />
+
+        <ImageView
+            android:id="@+id/iconeShare"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintBottom_toTopOf="@+id/iconeFavoritar"
+            app:layout_constraintStart_toEndOf="@+id/sobreAtor"
+            app:srcCompat="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/iconeFavoritar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sobreAtor"
+            app:srcCompat="@drawable/favoritos_nao_selecionado" />
+
+        <View
+            android:id="@+id/viewCard"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/purple"
+            android:focusable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotoAtor" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
+

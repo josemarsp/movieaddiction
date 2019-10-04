@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.Adapter;
+package br.com.josef.movieaddiction.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
