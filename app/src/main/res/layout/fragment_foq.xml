@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FoqFragment"
+    android:background="#000">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#000"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/titulo_faq"
+                android:layout_width="392dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="FAQ"
+                android:textColor="#D4B8F8"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:background="#bb87fc"
+                android:focusable="false"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_dois"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="2. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_tres"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#bb87fc"
+                android:focusable="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_tres"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="3. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_dois"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#bb87fc"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_um"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="1. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_um"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#bb87fc"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+        <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_quatro"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="4. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_quatro"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+
+            <View
+
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#bb87fc"
+                android:focusable="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_cinco"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="3. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_cinco"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+
+        <View
+
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#bb87fc"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+
+        <TextView
+            android:id="@+id/titulo_faq_seis"
+            android:layout_width="382dp"
+            android:layout_height="22dp"
+            android:text="3. Como eu posso acessar a lista de gêneros?"
+            android:textColor="#D4B8F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <TextView
+            android:id="@+id/info_faq_seis"
+            android:layout_width="382dp"
+            android:layout_height="75dp"
+            android:text="A lista de Gênero pode ser acessada tanto na categoria de Filmes quanto na categoria de séries. Para isso clique nos icones na barra de Status para ter acesso."
+            android:textColor="#B2B4B6" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#bb87fc"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

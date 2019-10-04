@@ -12,6 +12,7 @@
         <activity android:name=".view.view.PrincipalActivity"></activity>
         <activity android:name=".view.view.CadastroActivity" />
         <activity android:name=".view.view.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
