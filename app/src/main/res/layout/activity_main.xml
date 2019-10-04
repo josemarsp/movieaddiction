@@ -57,11 +57,11 @@
         android:id="@+id/mainBtnLogin"
         android:layout_width="332dp"
         android:layout_height="50dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginLeft="59dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginRight="74dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:background="#C185E7"
         android:text="Log in"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,8 +85,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mainTxtSenha"
-        android:layout_width="375dp"
-        android:layout_height="56dp"
+        android:layout_width="332dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="#FC302F2F"
         android:textColorHint="#FFF"
@@ -96,7 +96,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="Password"
             android:textColor="#FFFF"
             android:textColorHighlight="#FFFF"
@@ -106,20 +106,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mainTxtEmail"
-        android:layout_width="375dp"
-        android:layout_height="56dp"
+        android:layout_width="332dp"
+        android:layout_height="50dp"
         android:layout_marginTop="68dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
         android:background="#FC302F2F"
         android:textColorHint="#FFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+            android:layout_width="331dp"
             android:layout_height="wrap_content"
             android:hint="Email "
             android:textColor="#FFFF"
