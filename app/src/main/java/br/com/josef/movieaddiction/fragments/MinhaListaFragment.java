@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.os.Bundle;
@@ -11,11 +11,20 @@ import android.view.ViewGroup;
 
 import br.com.josef.movieaddiction.R;
 
-public class FoqFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MinhaListaFragment extends Fragment {
 
 
-    public FoqFragment() {
+    public MinhaListaFragment() {
         // Required empty public constructor
+    }
+
+    public static MinhaListaFragment newInstance() {
+        MinhaListaFragment minhaListaFragment = new MinhaListaFragment();
+        return minhaListaFragment;
+
     }
 
 
@@ -23,7 +32,7 @@ public class FoqFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_foq, container, false);
+        return inflater.inflate(R.layout.fragment_minha_lista, container, false);
     }
 
 }

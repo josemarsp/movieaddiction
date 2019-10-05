@@ -1,11 +1,8 @@
-package br.com.josef.movieaddiction.view;
+package br.com.josef.movieaddiction.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import br.com.josef.movieaddiction.R;
 

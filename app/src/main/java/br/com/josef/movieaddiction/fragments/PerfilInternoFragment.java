@@ -14,16 +14,11 @@ import br.com.josef.movieaddiction.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PesquisaAtoresFragment extends Fragment {
+public class PerfilInternoFragment extends Fragment {
 
 
-    public PesquisaAtoresFragment() {
+    public PerfilInternoFragment() {
         // Required empty public constructor
-    }
-
-    public static Fragment newInstance() {
-        PesquisaAtoresFragment pesquisaAtoresFragment = new PesquisaAtoresFragment();
-        return pesquisaAtoresFragment;
     }
 
 
@@ -31,7 +26,7 @@ public class PesquisaAtoresFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pesquisa_atores, container, false);
+        return inflater.inflate(R.layout.fragment_perfil_interno, container, false);
     }
 
 }

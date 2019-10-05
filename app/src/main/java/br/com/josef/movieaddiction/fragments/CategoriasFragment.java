@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.os.Bundle;
@@ -19,14 +19,19 @@ import br.com.josef.movieaddiction.adapter.AdapterCategoria;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 
 
-public class RecyclerViewCategoriasFragment extends Fragment {
+public class CategoriasFragment extends Fragment {
     private RecyclerView recyclerViewCategorias;
     private AdapterCategoria adapterCat;
 
 
 
-    public RecyclerViewCategoriasFragment() {
+    public CategoriasFragment() {
         // Required empty public constructor
+    }
+
+    public static Fragment newInstance() {
+        CategoriasFragment categoriasFragment = new CategoriasFragment();
+        return categoriasFragment;
     }
 
 
@@ -44,10 +49,9 @@ public class RecyclerViewCategoriasFragment extends Fragment {
 
 
         // setar o activite contendo o conteiner para abrir a lista
-        recyclerViewCategorias.setLayoutManager(new LinearLayoutManager(//Activity.this()));
+        recyclerViewCategorias.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-
+                return view;
 
     }
 
