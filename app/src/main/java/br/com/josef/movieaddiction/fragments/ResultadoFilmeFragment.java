@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.graphics.drawable.Drawable;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
-import static br.com.josef.movieaddiction.fragment.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 /**
  * A simple {@link Fragment} subclass.
