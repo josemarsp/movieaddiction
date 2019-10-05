@@ -51,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/avatar" />
+            app:srcCompat="@drawable/cartazhobbit" />
 
         <TextView
             android:id="@+id/tituloFilme"

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_black"
-    tools:context=".fragments.ResultadoFilmeFragment">
+    tools:context=".fragment.ResultadoFilmeFragment">
 
     <ImageView
-        android:id="@+id/imagemAutor"
+        android:id="@+id/imagemFilme"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginBottom="410dp"
@@ -32,7 +32,7 @@
         android:textColor="@color/purple"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagemAutor" />
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilme" />
 
     <TextView
         android:id="@+id/sloganFilme"
@@ -55,7 +55,7 @@
         android:layout_marginLeft="192dp"
         android:layout_marginTop="14dp"
         app:layout_constraintStart_toEndOf="@+id/nomeFilme"
-        app:layout_constraintTop_toBottomOf="@+id/imagemAutor"
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilme"
         app:srcCompat="@drawable/rating" />
 
     <TextView
@@ -70,7 +70,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iconeFavoritar"
-        app:layout_constraintTop_toBottomOf="@+id/imagemAutor" />
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilme" />
 
     <View
         android:id="@+id/view"
