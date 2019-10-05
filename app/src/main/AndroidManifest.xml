@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.view.PrincipalActivity"></activity>
-        <activity android:name=".view.view.CadastroActivity" />
-        <activity android:name=".view.view.SplashActivity">
+        <activity android:name=".view.PrincipalActivity"></activity>
+        <activity android:name=".view.CadastroActivity" />
+        <activity android:name=".view.SplashActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.view.MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
