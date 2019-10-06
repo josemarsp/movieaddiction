@@ -24,7 +24,7 @@ public class PesquisaAtoresFragment extends Fragment {
         return pesquisaAtoresFragment;
     }
 
-
+  
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
