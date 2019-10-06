@@ -5,10 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PrincipalActivity"
+    tools:context=".views.PrincipalActivity"
     android:background="#FD020000">
 
-    <include layout="@layout/content_main" />
+    <LinearLayout
+        android:id="@+id/conainter_principal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></LinearLayout>
 
     <include layout="@layout/menu_bottom_navigator"></include>
 

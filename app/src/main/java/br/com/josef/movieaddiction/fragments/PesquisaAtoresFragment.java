@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.os.Bundle;
@@ -11,11 +11,19 @@ import android.view.ViewGroup;
 
 import br.com.josef.movieaddiction.R;
 
-public class FoqFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class PesquisaAtoresFragment extends Fragment {
 
 
-    public FoqFragment() {
+    public PesquisaAtoresFragment() {
         // Required empty public constructor
+    }
+
+    public static Fragment newInstance() {
+        PesquisaAtoresFragment pesquisaAtoresFragment = new PesquisaAtoresFragment();
+        return pesquisaAtoresFragment;
     }
 
 
@@ -23,7 +31,7 @@ public class FoqFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_foq, container, false);
+        return inflater.inflate(R.layout.fragment_pesquisa_atores, container, false);
     }
 
 }

@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.os.Bundle;
@@ -14,11 +14,17 @@ import br.com.josef.movieaddiction.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RetornoDaCategoriaFragment extends Fragment {
+public class MinhaListaFragment extends Fragment {
 
 
-    public RetornoDaCategoriaFragment() {
+    public MinhaListaFragment() {
         // Required empty public constructor
+    }
+
+    public static MinhaListaFragment newInstance() {
+        MinhaListaFragment minhaListaFragment = new MinhaListaFragment();
+        return minhaListaFragment;
+
     }
 
 
@@ -26,7 +32,7 @@ public class RetornoDaCategoriaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_retorno_da_categoria, container, false);
+        return inflater.inflate(R.layout.fragment_minha_lista, container, false);
     }
 
 }
