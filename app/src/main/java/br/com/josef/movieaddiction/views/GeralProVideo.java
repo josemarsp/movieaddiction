@@ -13,6 +13,5 @@ public class GeralProVideo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geral_pro_video);
 
-        }
     }
-
+}

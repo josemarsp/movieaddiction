@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragment;
+package br.com.josef.movieaddiction.fragments;
 
 
 import android.os.Bundle;

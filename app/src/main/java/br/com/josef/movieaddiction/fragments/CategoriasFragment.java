@@ -51,7 +51,7 @@ public class CategoriasFragment extends Fragment {
         // setar o activite contendo o conteiner para abrir a lista
         recyclerViewCategorias.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                return view;
+        return view;
 
     }
 
