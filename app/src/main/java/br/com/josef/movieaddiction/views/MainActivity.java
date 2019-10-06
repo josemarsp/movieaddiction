@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.view;
+package br.com.josef.movieaddiction.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +12,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import br.com.josef.movieaddiction.R;
 
-import static br.com.josef.movieaddiction.view.CadastroActivity.EMAIL_KEY_CAD;
-import static br.com.josef.movieaddiction.view.CadastroActivity.SENHA_KEY_CAD;
+import static br.com.josef.movieaddiction.views.CadastroActivity.EMAIL_KEY_CAD;
+import static br.com.josef.movieaddiction.views.CadastroActivity.SENHA_KEY_CAD;
 
 public class MainActivity extends AppCompatActivity {
 
