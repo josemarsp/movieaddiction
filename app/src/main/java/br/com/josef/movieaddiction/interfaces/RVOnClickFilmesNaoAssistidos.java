@@ -1,4 +1,7 @@
 package br.com.josef.movieaddiction.interfaces;
 
-public interface RVOnclickFilmesNaoAssistidos {
+import br.com.josef.movieaddiction.model.FilmesNaoAssistidosModel;
+
+public interface RVOnClickFilmesNaoAssistidos {
+    void onClickFilmesNaoAssistidos (FilmesNaoAssistidosModel filmesNaoAssistidosModel);
 }

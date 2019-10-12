@@ -43,6 +43,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 listener.onClick(filmes);
             }
         });
@@ -64,7 +65,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder
             super(itemView);
 
             imagemFilme = itemView.findViewById(R.id.imagemFilme);
-            nomeFilme = itemView.findViewById(R.id.nomeFilme);
+            nomeFilme = itemView.findViewById(R.id.nomeFilme_id);
         }
 
         public void onBind(FilmesModel filmes){

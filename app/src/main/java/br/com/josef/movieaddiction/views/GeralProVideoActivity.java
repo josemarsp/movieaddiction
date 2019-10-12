@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import br.com.josef.movieaddiction.R;
 
-public class GeralProVideo extends AppCompatActivity {
+public class GeralProVideoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

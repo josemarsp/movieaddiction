@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views;
+package br.com.josef.movieaddiction.fragments;
 
 
 import androidx.fragment.app.Fragment;

@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/nomeFilme"
+        android:id="@+id/nomeFilme_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imagemFilme" />
 
     <TextView
-        android:id="@+id/sloganFilme"
+        android:id="@+id/sloganFilme_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -45,7 +45,7 @@
         android:textColor="@color/purple"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeFilme" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeFilme_id" />
 
     <ImageView
         android:id="@+id/iconeRating"
@@ -54,12 +54,12 @@
         android:layout_marginStart="192dp"
         android:layout_marginLeft="192dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintStart_toEndOf="@+id/nomeFilme"
+        app:layout_constraintStart_toEndOf="@+id/nomeFilme_id"
         app:layout_constraintTop_toBottomOf="@+id/imagemFilme"
         app:srcCompat="@drawable/rating" />
 
     <TextView
-        android:id="@+id/notaFilme"
+        android:id="@+id/notaFilme_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sloganFilme" />
+        app:layout_constraintTop_toBottomOf="@+id/sloganFilme_id" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -105,7 +105,7 @@
             android:src="@drawable/ano" />
 
         <TextView
-            android:id="@+id/textAno"
+            android:id="@+id/textAno_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -123,7 +123,7 @@
             android:src="@drawable/duracao" />
 
         <TextView
-            android:id="@+id/textDuracao"
+            android:id="@+id/textDuracao_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -141,7 +141,7 @@
             android:src="@drawable/censura" />
 
         <TextView
-            android:id="@+id/textCensura"
+            android:id="@+id/textCensura_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -159,7 +159,7 @@
             android:src="@drawable/genero" />
 
         <TextView
-            android:id="@+id/textGenero"
+            android:id="@+id/textGenero_id"
             android:layout_width="53dp"
             android:layout_height="13dp"
             android:layout_marginTop="16dp"
@@ -193,35 +193,35 @@
 
 
         <ImageView
-            android:id="@+id/trailer"
+            android:id="@+id/icon_trailer_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:src="@drawable/trailler" />
 
         <ImageView
-            android:id="@+id/naoassitido"
+            android:id="@+id/icon_naoassitido_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:src="@drawable/nao_assistido" />
 
         <ImageView
-            android:id="@+id/assistirdepois"
+            android:id="@+id/icon_jaassistido_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/assistir_depois" />
+            android:src="@drawable/assistido" />
 
         <ImageView
-            android:id="@+id/favorito"
+            android:id="@+id/icon_favorito_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:src="@drawable/favoritos_nao_selecionado" />
 
         <ImageView
-            android:id="@+id/share"
+            android:id="@+id/icon_share_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -242,11 +242,12 @@
 
     <TextView
         android:id="@+id/txtNaoAssistido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:text="Não Assistido"
+        android:layout_width="94dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Não Assisti, mas quero ver"
+        android:textAlignment="center"
         android:textColor="@color/purple"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/txtTrailer"
@@ -256,9 +257,9 @@
         android:id="@+id/txtAssistirDepois"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:text="Assistir Depois"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="Ja Assisti"
         android:textColor="@color/purple"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/txtNaoAssistido"
@@ -268,8 +269,8 @@
         android:id="@+id/textFavorito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:text="Favorito"
         android:textColor="@color/purple"
         android:textSize="12sp"
@@ -280,8 +281,8 @@
         android:id="@+id/txtCompartilhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:text="Compartilhar"
         android:textColor="@color/purple"
         android:textSize="12sp"
@@ -292,7 +293,7 @@
         android:id="@+id/view3"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:background="@color/purple"
         android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -300,22 +301,50 @@
         app:layout_constraintTop_toBottomOf="@+id/textFavorito" />
 
     <TextView
-        android:id="@+id/biografiaTitulo"
+        android:id="@+id/textview_titulo_da_sinopse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="12dp"
-        android:text="Biografia"
+        android:text="Sinopse"
         android:textColor="@color/purple"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
-        android:id="@+id/textoBiografia"
-        android:layout_width="350dp"
+        android:id="@+id/textview_titulo_elenco"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="116dp"
+        android:text="Elenco"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/textview_descricao_do_elenco_id"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="116dp"
+        android:text="@string/lorem"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_titulo_da_sinopse" />
+
+    <TextView
+        android:id="@+id/textview_descricao_da_sinopse_id"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="12dp"
@@ -325,7 +354,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/biografiaTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_titulo_da_sinopse" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

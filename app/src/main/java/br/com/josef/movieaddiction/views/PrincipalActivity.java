@@ -73,7 +73,7 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
     }
     private void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.conainter_principal, fragment);
+        transaction.replace(R.id.conainter_principal_id, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

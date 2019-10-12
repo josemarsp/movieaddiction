@@ -9,10 +9,10 @@
     android:background="#FD020000">
 
     <LinearLayout
-        android:id="@+id/conainter_principal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        ></LinearLayout>
+        android:id="@+id/conainter_principal_id"
+        android:layout_width="404dp"
+        android:layout_height="607dp"
+        tools:layout_editor_absoluteY="43dp"></LinearLayout>
 
     <include layout="@layout/menu_bottom_navigator"></include>
 
