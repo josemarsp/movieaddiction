@@ -44,15 +44,6 @@ public class MainActivity extends AppCompatActivity {
         btnFacebookMain = findViewById((R.id.mainBtnFacebook));
         btnGoogleMain = findViewById(R.id.mainBtnGoogle);
 
-//        imagemHobbit = findViewById(R.id.imageView_hobbit_id);
-//        imagemHobbit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, ResultadoFilmeFragment.class);
-//                startActivity(intent);
-//            }
-//        });
-
 
         btnREg.setOnClickListener(new View.OnClickListener() {
             @Override

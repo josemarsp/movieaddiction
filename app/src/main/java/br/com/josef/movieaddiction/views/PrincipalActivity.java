@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,10 +23,12 @@ import br.com.josef.movieaddiction.fragments.MinhaListaFragment;
 import br.com.josef.movieaddiction.fragments.CategoriasFragment;
 import br.com.josef.movieaddiction.fragments.HomeFragment;
 import br.com.josef.movieaddiction.fragments.PesquisaAtoresFragment;
+import br.com.josef.movieaddiction.fragments.ResultadoFilmeFragment;
 
 public class PrincipalActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
     private BottomNavigationView bottomNavigationView;
+
 
 
     @Override
@@ -33,6 +39,11 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         openFragment(new HomeFragment());
+
+
+//todo: como fazer minha parte
+//todo e o pojo ta certo?
+//        me explica a diferenca entre comunicacao entre fragment com ativitity e vice versa. pq ja sei frag pra frag e act p act
 
     }
 

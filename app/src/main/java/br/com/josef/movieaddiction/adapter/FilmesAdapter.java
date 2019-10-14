@@ -22,6 +22,8 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder
 
     private RVOnClickFilmes listener;
 
+    public FilmesAdapter(){};
+
     public FilmesAdapter(List<FilmesModel> atoresList, RVOnClickFilmes listener) {
         this.filmesList = atoresList;
         this.listener = listener;

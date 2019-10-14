@@ -12,8 +12,9 @@
         android:id="@+id/conainter_principal_id"
         android:layout_width="404dp"
         android:layout_height="607dp"
-        tools:layout_editor_absoluteY="43dp"></LinearLayout>
+        tools:layout_editor_absoluteY="43dp">
 
-    <include layout="@layout/menu_bottom_navigator"></include>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
