@@ -1,11 +1,15 @@
 package br.com.josef.movieaddiction.fragments;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,7 @@ import android.widget.TextView;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.views.GeralProVideoActivity;
 
 import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
 
@@ -21,6 +26,8 @@ import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME
  * A simple {@link Fragment} subclass.
  */
 public class ResultadoFilmeFragment extends Fragment {
+    private FilmesModel filme;
+
     private ImageView imagemFilme;
     private TextView nomeFilme;
     private TextView sinopseDoFilme;
@@ -50,22 +57,64 @@ public class ResultadoFilmeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultado_filme, container, false);
 
         initViews(view);
+        initIcons();
 
         if (!getArguments().isEmpty()){
 
-            FilmesModel filmes = getArguments().getParcelable(FILME_KEY);
+            filme = getArguments().getParcelable(FILME_KEY);
 
-            if (filmes != null) {
-                Drawable drawable = getResources().getDrawable(filmes.getImagem());
+            if (filme != null) {
+                Drawable drawable = getResources().getDrawable(filme.getImagem());
 
                 imagemFilme.setImageDrawable(drawable);
-                nomeFilme.setText(filmes.getNome());
+                nomeFilme.setText(filme.getNome());
             }
         }
 
         return view;
 
 
+    }
+
+    private void initIcons() {
+        iconeJaAssistido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                Fragment fragment = new ListaDeFilmeAssistidosFragment();
+                fragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction t = fragmentManager.beginTransaction();
+                t.replace(R.id.conainter_principal_id, fragment);
+                t.commit();
+            }
+        });
+
+        iconeNaoAssitido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                Fragment fragment = new ListaDeFilmesNaoAssistidosFragment();
+                fragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction t = fragmentManager.beginTransaction();
+                t.replace(R.id.conainter_principal_id, fragment);
+                t.commit();
+            }
+        });
+
+        iconeTrailler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),GeralProVideoActivity.class);
+                intent.putExtra(FILME_KEY, filme);
+                startActivity(intent);
+            }
+        });
     }
 
     public void initViews(View view){
@@ -83,6 +132,7 @@ public class ResultadoFilmeFragment extends Fragment {
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
         iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
+
     }
 
 
