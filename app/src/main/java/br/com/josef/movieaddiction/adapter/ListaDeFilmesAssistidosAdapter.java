@@ -63,7 +63,7 @@ public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDe
             super(itemView);
 
             capaDoFilme = itemView.findViewById(R.id.img_capa_filme_vistos_id);
-            nomeDoFilme = itemView.findViewById(R.id.img_capa_filme_vistos_id);
+            nomeDoFilme = itemView.findViewById(R.id.textView_titulo_filme_assistido_id);
             notaDoFilme = itemView.findViewById(R.id.textView_rating_nota_assistido_id);
             descricaoDoFilme = itemView.findViewById(R.id.textView_descricao_filme_assistido_id);
         }
