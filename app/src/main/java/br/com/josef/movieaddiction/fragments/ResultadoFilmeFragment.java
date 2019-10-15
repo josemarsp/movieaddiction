@@ -88,6 +88,7 @@ public class ResultadoFilmeFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction t = fragmentManager.beginTransaction();
                 t.replace(R.id.conainter_principal_id, fragment);
+                t.addToBackStack(null);
                 t.commit();
             }
         });
@@ -103,6 +104,7 @@ public class ResultadoFilmeFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction t = fragmentManager.beginTransaction();
                 t.replace(R.id.conainter_principal_id, fragment);
+                t.addToBackStack(null);
                 t.commit();
             }
         });

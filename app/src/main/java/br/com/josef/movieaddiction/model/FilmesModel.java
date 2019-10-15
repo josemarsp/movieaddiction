@@ -13,11 +13,20 @@ public class FilmesModel implements Parcelable {
     private String tempoDuracao;
     private String censura;
     private String categoria;
+    private String videoURL;
 
     public FilmesModel(int hobbit, String o_hobbit) {
     }
 
-    public FilmesModel(int imagem, String nome, String sinopse, String elenco, String notaFilme, String anoLancamento, String tempoDuracao, String censura, String categoria) {
+    public String getVideoURL() {
+        return videoURL;
+    }
+
+    public void setVideoURL(String videoURL) {
+        this.videoURL = videoURL;
+    }
+
+    public FilmesModel(int imagem, String nome, String sinopse, String elenco, String notaFilme, String anoLancamento, String tempoDuracao, String censura, String categoria, String videoURL) {
         this.imagem = imagem;
         this.nome = nome;
         this.sinopse = sinopse;
@@ -27,6 +36,7 @@ public class FilmesModel implements Parcelable {
         this.tempoDuracao = tempoDuracao;
         this.censura = censura;
         this.categoria = categoria;
+        this.videoURL = videoURL;
     }
 
     protected FilmesModel(Parcel in) {
@@ -39,6 +49,7 @@ public class FilmesModel implements Parcelable {
         tempoDuracao = in.readString();
         censura = in.readString();
         categoria = in.readString();
+        videoURL = in.readString();
     }
 
     @Override
@@ -52,6 +63,7 @@ public class FilmesModel implements Parcelable {
         dest.writeString(tempoDuracao);
         dest.writeString(censura);
         dest.writeString(categoria);
+        dest.writeString(videoURL);
     }
 
     @Override
@@ -142,4 +154,6 @@ public class FilmesModel implements Parcelable {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+
 }

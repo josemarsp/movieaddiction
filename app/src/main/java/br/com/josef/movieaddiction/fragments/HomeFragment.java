@@ -52,7 +52,8 @@ public class HomeFragment extends Fragment {
                         "2019",
                         "5 minutos",
                         "50 anos",
-                        "infantil"
+                        "infantil",
+                        "https://www.youtube.com/watch?v=nOGsB9dORBg&t=47s"
                 );
 
                 Bundle bundle = new Bundle();
