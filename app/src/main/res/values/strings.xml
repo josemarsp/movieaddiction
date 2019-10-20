@@ -10,6 +10,6 @@
     <string name="sobre_filme">Pequeno texto que conta qual é a história do filme, de acordo com a pesquisa do usuário.</string>
     <string name="frase_filme">Uma frase legal e chamativa sobre o filme.</string>
     <string name="bottom_navigator_bar">Barra de navegação</string>
-    <string name="loremshort">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="loremshort">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.</string>
 
 </resources>
