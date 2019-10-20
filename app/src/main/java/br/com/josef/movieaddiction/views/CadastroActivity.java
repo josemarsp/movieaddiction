@@ -52,7 +52,7 @@ public class CadastroActivity extends AppCompatActivity {
                 String localConfSenha = txtConfSenha.getEditText().getText().toString();
 
 
-                if (!localNome.isEmpty() && !localEmail.isEmpty()&& !localSenha.isEmpty() && !localConfSenha.isEmpty()){
+//                if (!localNome.isEmpty() && !localEmail.isEmpty()&& !localSenha.isEmpty() && !localConfSenha.isEmpty()){
 
 
 
@@ -72,7 +72,8 @@ public class CadastroActivity extends AppCompatActivity {
                     //Passo a intent para o startActivity
                     startActivity(intent);
 
-                }else{
+//                }
+//                else{
 
                     Snackbar.make(btnRegistrar, "Todos os campos devem ser preenchidos!", Snackbar.LENGTH_LONG).show();
                     /* txtNome.setError("Preencha o campo nome!");
@@ -80,7 +81,7 @@ public class CadastroActivity extends AppCompatActivity {
                     txtSenha.setError("Preencha o campo senha!");
                     txtConfSenha.setError("Preencha o campo Confirmação de Senha!");*/
 
-                }
+//                }
 
 
             }

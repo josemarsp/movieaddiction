@@ -1,16 +1,21 @@
 package br.com.josef.movieaddiction.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.com.josef.movieaddiction.R;
+import br.com.josef.movieaddiction.fragments.ResultadoFilmeFragment;
 
 import static br.com.josef.movieaddiction.views.CadastroActivity.EMAIL_KEY_CAD;
 import static br.com.josef.movieaddiction.views.CadastroActivity.SENHA_KEY_CAD;
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public Button btnLogin;
     public Button btnFacebookMain;
     public Button btnGoogleMain;
+    private ImageView imagemHobbit;
 
 
     @Override
@@ -105,6 +111,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction t = fragmentManager.beginTransaction();
+        t.replace(R.id.conainter_principal_id, fragment);
+        t.commit();
     }
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.GeralProVideo">
+    tools:context=".views.GeralProVideoActivity">
 
     <WebView
         android:id="@+id/geral_video_webview_id"
