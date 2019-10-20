@@ -30,7 +30,7 @@ public class AtoresAdapter extends RecyclerView.Adapter<AtoresAdapter.ViewHolder
 
     @NonNull
     @Override
-    public AtoresAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_pesquisa_atores, parent, false);
         return new ViewHolder(view);
     }
@@ -63,7 +63,7 @@ public class AtoresAdapter extends RecyclerView.Adapter<AtoresAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imagemAtor = itemView.findViewById(R.id.imagemAtor);
+            imagemAtor = itemView.findViewById(R.id.fotoAtor);
             nomeAtor = itemView.findViewById(R.id.nomeAtor);
         }
 

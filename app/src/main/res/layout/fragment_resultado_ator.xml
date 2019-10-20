@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imagemAtor"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="230dp"
         android:layout_marginBottom="410dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ian2"
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:text="Local de nascimento"
         android:textColor="@color/gray"
         android:textSize="16dp"
@@ -109,16 +109,18 @@
         android:focusable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homepage" />
+        app:layout_constraintTop_toBottomOf="@+id/homepage"
+        app:layout_constraintVertical_bias="0.27" />
 
     <TextView
-        android:id="@+id/textview_titulo_da_sinopse"
+        android:id="@+id/biografiaTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="Biografia"
         android:textColor="@color/purple"
         android:textSize="20sp"
@@ -127,18 +129,17 @@
 
     <TextView
         android:id="@+id/textoBiografia"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="20dp"
         android:text="@string/lorem"
         android:textColor="@color/gray"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_titulo_da_sinopse" />
+        app:layout_constraintTop_toBottomOf="@+id/biografiaTitulo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

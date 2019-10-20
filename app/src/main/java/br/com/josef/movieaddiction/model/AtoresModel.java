@@ -8,9 +8,14 @@ public class AtoresModel implements Parcelable {
     private int imagem;
     private String nome;
 
-    public AtoresModel(int imagem, String nome) {
-        this.imagem = imagem;
+    public AtoresModel () {
+
+    }
+
+    public AtoresModel(String nome, int imagem) {
         this.nome = nome;
+        this.imagem = imagem;
+
     }
 
     protected AtoresModel(Parcel in) {
