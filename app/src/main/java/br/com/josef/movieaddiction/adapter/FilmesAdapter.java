@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
+import br.com.josef.movieaddiction.fragments.ListaDeFilmesPorCategoriaFragment;
 import br.com.josef.movieaddiction.interfaces.RVOnClickFilmes;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
@@ -22,7 +23,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder
 
     private RVOnClickFilmes listener;
 
-    public FilmesAdapter(){};
+    public FilmesAdapter(List<FilmesModel> atoresList, ListaDeFilmesPorCategoriaFragment listaDeFilmesPorCategoriaFragment){};
 
     public FilmesAdapter(List<FilmesModel> atoresList, RVOnClickFilmes listener) {
         this.filmesList = atoresList;

@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginBottom="410dp"
-        android:scaleType="centerCrop"
+
         android:src="@drawable/hobbit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -333,20 +333,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-    <TextView
-        android:id="@+id/textview_descricao_do_elenco_id"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="116dp"
-        android:text="@string/loremshort"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_titulo_da_sinopse" />
+        <TextView
+            android:id="@+id/textview_descricao_do_elenco_id"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="116dp"
+            android:text="@string/loremshort"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_titulo_da_sinopse" />
 
     <TextView
         android:id="@+id/textview_descricao_da_sinopse_id"

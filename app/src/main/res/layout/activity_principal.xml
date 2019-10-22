@@ -11,10 +11,20 @@
     <LinearLayout
         android:id="@+id/conainter_principal_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="43dp"></LinearLayout>
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
-    <include layout="@layout/menu_bottom_navigator"></include>
+    <include
+        android:id="@+id/include"
+        layout="@layout/menu_bottom_navigator"
+        android:layout_width="409dp"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
