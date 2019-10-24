@@ -6,9 +6,7 @@
     tools:context=".fragments.MinhaListaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MINHA LISTA FRAGMENTO" />
+    <include
+        layout="@layout/fragment_lista_de_filmes_assistidos"></include>
 
 </FrameLayout>
