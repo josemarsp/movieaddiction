@@ -1,9 +1,12 @@
 package br.com.josef.movieaddiction.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,18 +19,17 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoria;
+import br.com.josef.movieaddiction.interfaces.RVOnClickCategorias;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 
+import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
 
-public class CategoriasFragment extends Fragment {
+
+public class CategoriasFragment extends Fragment implements RVOnClickCategorias {
     private RecyclerView recyclerViewCategorias;
     private AdapterCategoria adapterCat;
+    public static final String CATEGORIA_KEY = "categoria";
 
-
-
-    public CategoriasFragment() {
-        // Required empty public constructor
-    }
 
     public static Fragment newInstance() {
         CategoriasFragment categoriasFragment = new CategoriasFragment();
@@ -36,20 +38,23 @@ public class CategoriasFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         View view = inflater. inflate(R.layout.fragment_recycler_view_categorias, container, false);
 
         recyclerViewCategorias = view.findViewById(R.id.lista_categorias);
 
-        adapterCat = new AdapterCategoria(categorias());
+        adapterCat = new AdapterCategoria(categorias(), this);
 
         recyclerViewCategorias.setAdapter(adapterCat);
 
 
         // setar o activite contendo o conteiner para abrir a lista
         recyclerViewCategorias.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
 
                 return view;
 
@@ -61,10 +66,39 @@ public class CategoriasFragment extends Fragment {
         categoriasListasList.add(new CategoriasListas("Aventura"));
         categoriasListasList.add(new CategoriasListas("Animação"));
         categoriasListasList.add(new CategoriasListas("Drama"));
-        categoriasListasList.add(new CategoriasListas("Terror"));
+        categoriasListasList.add(new CategoriasListas("Romance"));
+        categoriasListasList.add(new CategoriasListas("Comédia"));
+        categoriasListasList.add(new CategoriasListas("Ação"));
+        categoriasListasList.add(new CategoriasListas("Comédia Dramatica"));
+        categoriasListasList.add(new CategoriasListas("Comédia Romantica"));
+        categoriasListasList.add(new CategoriasListas("Dança"));
+        categoriasListasList.add(new CategoriasListas("Musical"));
+        categoriasListasList.add(new CategoriasListas("Filme Polícial"));
+        categoriasListasList.add(new CategoriasListas("Espionagem"));
 
         return categoriasListasList;
 
+    }
 
+
+    @Override
+    public void onClick(CategoriasListas categoriasListas) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(CATEGORIA_KEY, categoriasListas);
+
+        Fragment envioFragment = new ListaDeFilmesPorCategoriaFragment();
+        envioFragment.setArguments(bundle);
+        replaceFragment(envioFragment);
+    }
+
+    public void replaceFragment (Fragment fragment){
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.conainter_principal_id, fragment);
+        transaction.commit();
+    }
+
+    private class ResultadoCategoriaFragment extends Fragment {
     }
 }
+

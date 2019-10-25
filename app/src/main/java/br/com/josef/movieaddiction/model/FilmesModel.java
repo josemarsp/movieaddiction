@@ -18,6 +18,40 @@ public class FilmesModel implements Parcelable {
     public FilmesModel(int hobbit, String o_hobbit) {
     }
 
+
+    public FilmesModel(int imagem, String nome, String sinopse, String notaFilme) {
+        this.imagem = imagem;
+        this.nome = nome;
+        this.sinopse = sinopse;
+        this.notaFilme = notaFilme;
+    }
+
+
+    protected FilmesModel(Parcel in) {
+        imagem = in.readInt();
+        nome = in.readString();
+        sinopse = in.readString();
+        elenco = in.readString();
+        notaFilme = in.readString();
+        anoLancamento = in.readString();
+        tempoDuracao = in.readString();
+        censura = in.readString();
+        categoria = in.readString();
+        videoURL = in.readString();
+    }
+
+    public static final Creator<FilmesModel> CREATOR = new Creator<FilmesModel>() {
+        @Override
+        public FilmesModel createFromParcel(Parcel in) {
+            return new FilmesModel(in);
+        }
+
+        @Override
+        public FilmesModel[] newArray(int size) {
+            return new FilmesModel[size];
+        }
+    };
+
     public String getVideoURL() {
         return videoURL;
     }
@@ -39,49 +73,6 @@ public class FilmesModel implements Parcelable {
         this.videoURL = videoURL;
     }
 
-    protected FilmesModel(Parcel in) {
-        imagem = in.readInt();
-        nome = in.readString();
-        sinopse = in.readString();
-        elenco = in.readString();
-        notaFilme = in.readString();
-        anoLancamento = in.readString();
-        tempoDuracao = in.readString();
-        censura = in.readString();
-        categoria = in.readString();
-        videoURL = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(imagem);
-        dest.writeString(nome);
-        dest.writeString(sinopse);
-        dest.writeString(elenco);
-        dest.writeString(notaFilme);
-        dest.writeString(anoLancamento);
-        dest.writeString(tempoDuracao);
-        dest.writeString(censura);
-        dest.writeString(categoria);
-        dest.writeString(videoURL);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<FilmesModel> CREATOR = new Creator<FilmesModel>() {
-        @Override
-        public FilmesModel createFromParcel(Parcel in) {
-            return new FilmesModel(in);
-        }
-
-        @Override
-        public FilmesModel[] newArray(int size) {
-            return new FilmesModel[size];
-        }
-    };
 
     public int getImagem() {
         return imagem;
@@ -156,4 +147,22 @@ public class FilmesModel implements Parcelable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(imagem);
+        parcel.writeString(nome);
+        parcel.writeString(sinopse);
+        parcel.writeString(elenco);
+        parcel.writeString(notaFilme);
+        parcel.writeString(anoLancamento);
+        parcel.writeString(tempoDuracao);
+        parcel.writeString(censura);
+        parcel.writeString(categoria);
+        parcel.writeString(videoURL);
+    }
 }

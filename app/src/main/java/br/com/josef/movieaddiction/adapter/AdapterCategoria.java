@@ -11,17 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
+import br.com.josef.movieaddiction.interfaces.RVOnClickCategorias;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 
 
 public class AdapterCategoria extends RecyclerView.Adapter <AdapterCategoria.ViewHolder> {
 
     private List<CategoriasListas> listaCategorias;
+    private RVOnClickCategorias listener;
 
-    public AdapterCategoria(List<CategoriasListas> listaCategorias) {
+
+    public AdapterCategoria(List<CategoriasListas> listaCategorias, RVOnClickCategorias listener) {
         this.listaCategorias = listaCategorias;
+        this.listener = listener;
     }
-
 
     @NonNull
     @Override
@@ -33,9 +36,16 @@ public class AdapterCategoria extends RecyclerView.Adapter <AdapterCategoria.Vie
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int posicao) {
-        CategoriasListas categoriasListas = listaCategorias.get(posicao);
-
+        final CategoriasListas categoriasListas = listaCategorias.get(posicao);
         viewHolder.onBind(categoriasListas);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(categoriasListas);
+            }
+        });
+
     }
 
     @Override
