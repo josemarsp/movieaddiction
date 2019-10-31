@@ -37,11 +37,11 @@ public class ListaDeFilmesNaoAssistidosFragment extends Fragment implements RVOn
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_de_filmes_nao_assistidos, container, false);
 
-        ArrayList<FilmesNaoAssistidosModel> models = new ArrayList<>();
-        models.add(new FilmesNaoAssistidosModel(R.drawable.hobbit, "10", "Hobbit", "Filme Muito Legal"));
+        ArrayList<FilmesNaoAssistidosModel> listaFilmesNaoAssistidos = new ArrayList<>();
+        listaFilmesNaoAssistidos.add(new FilmesNaoAssistidosModel(R.drawable.hobbit, "10", "Hobbit", "Filme Muito Legal"));
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView_fragment_filmes_nao_assistidos_id);
-        ListaDeFilmesNaoAssistidosAdapter listaDeFilmesNaoAssistidosAdapter = new ListaDeFilmesNaoAssistidosAdapter(this, models);
+        ListaDeFilmesNaoAssistidosAdapter listaDeFilmesNaoAssistidosAdapter = new ListaDeFilmesNaoAssistidosAdapter(this, listaFilmesNaoAssistidos);
         recyclerView.setAdapter(listaDeFilmesNaoAssistidosAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
