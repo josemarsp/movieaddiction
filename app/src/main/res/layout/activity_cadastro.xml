@@ -103,8 +103,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="56dp"
                         android:hint="Senha"
+                        android:inputType="textPassword"
                         android:textColor="#FCFFFFFF"
                         android:textColorHighlight="#FCFFFFFF"
                         android:textColorHint="#FDFFFFFF"
@@ -136,7 +137,8 @@
                         android:textColor="#FDFFFFFF"
                         android:textColorHighlight="#FAFFFFFF"
                         android:textColorHint="#FAFFFFFF"
-                        android:textColorLink="#FDFFFFFF" />
+                        android:textColorLink="#FDFFFFFF"
+                        android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

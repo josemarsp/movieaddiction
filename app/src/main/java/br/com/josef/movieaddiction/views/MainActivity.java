@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.fragments.ResultadoFilmeFragment;
 
@@ -32,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imagemHobbit;
 
 
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
+    private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+    private Matcher matcher;
+
+    private String email, senha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +53,15 @@ public class MainActivity extends AppCompatActivity {
         btnFacebookMain = findViewById((R.id.mainBtnFacebook));
         btnGoogleMain = findViewById(R.id.mainBtnGoogle);
 
+        //RETIRAR APOS FINALIZAR
+        Snackbar.make(txtEmailMain, "PRESSIONE LOGIN \n VALIDACAO DESABILITADA! ", Snackbar.LENGTH_LONG).show();
 
         btnREg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 startActivity(new Intent(MainActivity.this, CadastroActivity.class));
+
             }
         });
 
@@ -57,7 +69,15 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //desabilitado para não ter que digitar sempre
+                //validarCampos();
 
+                //ao finalizar projeto , remover esta linha
+
+
+                startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
+
+                /* código anterior
                 String localemailMain = (txtEmailMain).getEditText().getText().toString();
                 String localsenhaMain = (txtSenhaMain).getEditText().getText().toString();
 
@@ -90,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Snackbar.make(txtEmailMain, "Email ou senha não pode ser vazio", Snackbar.LENGTH_LONG).show();
                 }
-
-
+            */
 
             }
         });
@@ -118,6 +137,42 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction t = fragmentManager.beginTransaction();
         t.replace(R.id.conainter_principal_id, fragment);
         t.commit();
+    }
+
+
+    public void validarCampos(){
+        txtEmailMain.setErrorEnabled(false);
+        txtSenhaMain.setErrorEnabled(false);
+
+        email = txtEmailMain.getEditText().getText().toString().trim();
+        senha = txtSenhaMain.getEditText().getText().toString().trim();
+
+        if (!validateEmail(email) && !validatePassword(senha)) {
+            txtEmailMain.setError("Digite um e-mail válido");
+            txtSenhaMain.setError("Sua senha deve ter pelo menos 6 caractéres!");
+        } else if (!validatePassword(senha)) {
+            txtSenhaMain.setError("Sua senha deve ter pelo menos 6 caractéres!");
+            txtEmailMain.setErrorEnabled(false);
+        } else if(!validateEmail(email)){
+            txtEmailMain.setError("Digite um e-mail válido");
+            txtSenhaMain.setErrorEnabled(false);
+        }else{
+
+            txtEmailMain.setErrorEnabled(false);
+            txtSenhaMain.setErrorEnabled(false);
+
+            startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
+
+        }
+
+    }
+    public boolean validateEmail(String email) {
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public boolean validatePassword(String password) {
+        return password.length() > 5;
     }
 
 }

@@ -95,7 +95,8 @@
                         android:textColor="#FFFF"
                         android:textColorHighlight="#FFFF"
                         android:textColorHint="#FFFF"
-                        android:textColorLink="#FFFF" />
+                        android:textColorLink="#FFFF"
+                        android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
