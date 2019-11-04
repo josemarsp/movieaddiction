@@ -117,6 +117,23 @@ public class ResultadoFilmeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        iconeFavorito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                Fragment fragment = new ListaDeFavoritosFragment();
+                fragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = ResultadoFilmeFragment.this.getActivity().getSupportFragmentManager();
+                FragmentTransaction t = fragmentManager.beginTransaction();
+                t.replace(R.id.conainter_principal_id, fragment);
+                t.commit();
+
+            }
+        });
     }
 
     public void initViews(View view){
