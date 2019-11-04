@@ -33,11 +33,11 @@ public class ListaDeFilmeAssistidosFragment extends Fragment implements RVOnClic
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_de_filmes_assistidos, container, false);
 
-        ArrayList<FilmesAssistidosModel> models = new ArrayList<>();
-        models.add(new FilmesAssistidosModel(R.drawable.hobbit, "10", "Hobbit", "Filme Muito Legal"));
+        ArrayList<FilmesAssistidosModel> listaDeFilmesAssistidos = new ArrayList<>();
+        listaDeFilmesAssistidos.add(new FilmesAssistidosModel(R.drawable.hobbit, "10", "Hobbit", "Filme Muito Legal"));
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView_fragment_filmes_assistidos_id);
-        ListaDeFilmesAssistidosAdapter listaDeFilmesAssistidosAdapter = new ListaDeFilmesAssistidosAdapter(this, models);
+        ListaDeFilmesAssistidosAdapter listaDeFilmesAssistidosAdapter = new ListaDeFilmesAssistidosAdapter(this, listaDeFilmesAssistidos);
         recyclerView.setAdapter(listaDeFilmesAssistidosAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
