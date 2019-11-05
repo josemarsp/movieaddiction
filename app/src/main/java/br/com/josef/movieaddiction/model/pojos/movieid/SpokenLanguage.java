@@ -1,10 +1,12 @@
 
 package br.com.josef.movieaddiction.model.pojos.movieid;
 
+import androidx.room.Entity;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
+@Entity(tableName = "spokenLanguage")
 public class SpokenLanguage {
 
     @SerializedName("iso_639_1")

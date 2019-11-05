@@ -1,12 +1,14 @@
 
 package br.com.josef.movieaddiction.model.pojos.movieid;
 
+import androidx.room.Entity;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-
+@Entity(tableName = "filme")
 public class Filme {
 
     @Expose
