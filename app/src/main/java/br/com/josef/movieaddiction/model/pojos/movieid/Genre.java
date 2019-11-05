@@ -1,9 +1,11 @@
 
 package br.com.josef.movieaddiction.model.pojos.movieid;
 
+import androidx.room.Entity;
+
 import com.google.gson.annotations.Expose;
 
-
+@Entity(tableName = "Genre")
 public class Genre {
 
     @Expose
