@@ -13,8 +13,15 @@ import io.reactivex.Flowable;
 @Dao
 public interface FilmeDao {
 
+
+
+    /**No método de insert temos o onConflict
+     * onConflict: é um conjunto de estratégias de tratamento de conflitos, nesse caso estamos usando o REPLACE
+     * ou seja o OnConflict irá substituir os dados antigos pelos novos e continuar a transação.
+     */
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(List<Filme> results);
+    void insert(List<Filme> filmes);
 
     @Query("Delete from filme")
     void deleteAll();
@@ -24,19 +31,4 @@ public interface FilmeDao {
     Flowable<List<Filme>> getAll(); // Aqui retornamos um Flowable que é o observavel para o ROOM DATABASE
 
 
-
-
-/* Codigo Ariel
-    @GET("movie/now_playing")
-    Observable<FilmeNowPlayingResult> getAllNowPlaying(@Query("apinowplaying_key") String apimovieKey);
-
-    @GET("search/movie")
-    Observable<SearchResult> getAllSearch (@Query("apisearch_key")String apisearchKey);
-
-    @GET("movie/{movie_id}/videos")
-    Observable<TrailerResult> getAllTrailers(@Query("apitrailer_key") String apitrailerKey);
-
-    @GET( "movie/{movie_id}")
-    Observable<Filme> getAllFilmes (@Query("apimovie_key") String apimovieKey);
-    */
 }

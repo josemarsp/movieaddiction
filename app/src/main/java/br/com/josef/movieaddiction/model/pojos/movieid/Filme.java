@@ -2,6 +2,7 @@
 package br.com.josef.movieaddiction.model.pojos.movieid;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,6 +11,8 @@ import java.util.List;
 
 @Entity(tableName = "filme")
 public class Filme {
+
+    //criamos um long id
 
     @Expose
     private Boolean adult;
@@ -24,6 +27,8 @@ public class Filme {
     @Expose
     private String homepage;
     @Expose
+    // usando id da api para o banco
+    @PrimaryKey(autoGenerate = true)
     private Long id;
     @SerializedName("imdb_id")
     private String imdbId;
