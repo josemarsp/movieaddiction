@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views;
+package br.com.josef.movieaddiction.views.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.SslErrorHandler;
-import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -16,7 +15,7 @@ import android.webkit.WebViewClient;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
-import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 public class GeralProVideoActivity extends AppCompatActivity {
 

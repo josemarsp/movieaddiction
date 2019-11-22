@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views;
+package br.com.josef.movieaddiction.views.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

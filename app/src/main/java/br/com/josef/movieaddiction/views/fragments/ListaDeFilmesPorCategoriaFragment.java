@@ -1,8 +1,6 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,16 +19,12 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoriaRetorno;
-import br.com.josef.movieaddiction.adapter.FilmesAdapter;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFilmes;
-import br.com.josef.movieaddiction.model.AtoresModel;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
-import static br.com.josef.movieaddiction.fragments.CategoriasFragment.CATEGORIA_KEY;
-import static br.com.josef.movieaddiction.fragments.CategoriasFragment.newInstance;
-import static br.com.josef.movieaddiction.fragments.PesquisaAtoresFragment.ATOR_KEY;
-import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.CategoriasFragment.CATEGORIA_KEY;
+import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 /**
  * A simple {@link Fragment} subclass.

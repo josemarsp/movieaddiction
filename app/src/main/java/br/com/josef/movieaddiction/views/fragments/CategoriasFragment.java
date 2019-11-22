@@ -1,7 +1,6 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,10 +18,8 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoria;
-import br.com.josef.movieaddiction.interfaces.RVOnClickCategorias;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 import br.com.josef.movieaddiction.model.CategoriasListas;
-
-import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 
 public class CategoriasFragment extends Fragment implements RVOnClickCategorias {

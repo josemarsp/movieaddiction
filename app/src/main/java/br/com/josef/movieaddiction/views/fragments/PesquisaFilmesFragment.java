@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.FilmesAdapter;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFilmes;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
 /**

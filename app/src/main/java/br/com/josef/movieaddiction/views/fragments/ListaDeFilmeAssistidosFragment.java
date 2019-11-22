@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.ListaDeFilmesAssistidosAdapter;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFilmesAssistidos;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesAssistidos;
 import br.com.josef.movieaddiction.model.FilmesAssistidosModel;
 
 public class ListaDeFilmeAssistidosFragment extends Fragment implements RVOnClickFilmesAssistidos {

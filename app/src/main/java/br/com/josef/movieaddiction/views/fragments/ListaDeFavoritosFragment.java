@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.FavoritosAdapter;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFavoritos;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFavoritos;
 import br.com.josef.movieaddiction.model.FavoritosModel;
 
 public class ListaDeFavoritosFragment extends Fragment implements RVOnClickFavoritos {

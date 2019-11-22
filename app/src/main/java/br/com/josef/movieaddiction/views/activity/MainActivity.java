@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views;
+package br.com.josef.movieaddiction.views.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,10 +18,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.fragments.ResultadoFilmeFragment;
-
-import static br.com.josef.movieaddiction.views.CadastroActivity.EMAIL_KEY_CAD;
-import static br.com.josef.movieaddiction.views.CadastroActivity.SENHA_KEY_CAD;
 
 public class MainActivity extends AppCompatActivity {
 

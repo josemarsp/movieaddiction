@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.interfaces.RVOnClickCategorias;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 
 

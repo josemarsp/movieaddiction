@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views;
+package br.com.josef.movieaddiction.views.activity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -17,11 +17,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Objects;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.fragments.CategoriasFragment;
-import br.com.josef.movieaddiction.fragments.HomeFragment;
-import br.com.josef.movieaddiction.fragments.MinhaListaFragment;
-import br.com.josef.movieaddiction.fragments.PerfilInternoFragment;
-import br.com.josef.movieaddiction.fragments.PesquisaAtoresFragment;
+import br.com.josef.movieaddiction.views.fragments.CategoriasFragment;
+import br.com.josef.movieaddiction.views.fragments.HomeFragment;
+import br.com.josef.movieaddiction.views.fragments.MinhaListaFragment;
+import br.com.josef.movieaddiction.views.fragments.PerfilInternoFragment;
+import br.com.josef.movieaddiction.views.fragments.PesquisaAtoresFragment;
 
 public class PrincipalActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.interfaces;
+package br.com.josef.movieaddiction.views.interfaces.old;
 
 import br.com.josef.movieaddiction.model.FilmesAssistidosModel;
 

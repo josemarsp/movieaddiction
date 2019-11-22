@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.content.Intent;
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +17,9 @@ import android.widget.TextView;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
-import br.com.josef.movieaddiction.views.GeralProVideoActivity;
+import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
 
-import static br.com.josef.movieaddiction.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.fragments;
+package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.os.Bundle;
@@ -18,11 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.adapter.ListaDeFilmesAssistidosAdapter;
 import br.com.josef.movieaddiction.adapter.ListaDeFilmesNaoAssistidosAdapter;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFilmesAssistidos;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFilmesNaoAssistidos;
-import br.com.josef.movieaddiction.model.FilmesAssistidosModel;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesNaoAssistidos;
 import br.com.josef.movieaddiction.model.FilmesNaoAssistidosModel;
 
 
