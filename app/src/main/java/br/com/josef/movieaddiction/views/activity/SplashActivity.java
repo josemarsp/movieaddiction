@@ -1,11 +1,11 @@
 package br.com.josef.movieaddiction.views.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 jump();
             }
-        }, 2000);
+        }, 1000);
     }
 
     private void jump(){

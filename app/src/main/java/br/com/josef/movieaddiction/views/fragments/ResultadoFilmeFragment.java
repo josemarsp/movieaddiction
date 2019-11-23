@@ -2,7 +2,6 @@ package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.squareup.picasso.Picasso;
+
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
 import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
 
 import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
@@ -57,16 +59,14 @@ public class ResultadoFilmeFragment extends Fragment {
         initViews(view);
         initIcons();
 
-        if (!getArguments().isEmpty()){
+        if (getArguments() != null){
 
-            filme = getArguments().getParcelable(FILME_KEY);
 
-            if (filme != null) {
-                Drawable drawable = getResources().getDrawable(filme.getImagem());
-
-                imagemFilme.setImageDrawable(drawable);
-                nomeFilme.setText(filme.getNome());
-            }
+            FilmeNowPlaying filmeNowPlaying = getArguments().getParcelable(FILME_KEY);
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filmeNowPlaying.getBackdropPath()).into(imagemFilme);
+            nomeFilme.setText(filmeNowPlaying.getTitle());
+            sinopseDoFilme.setText(filmeNowPlaying.getOverview());
+            
         }
 
         return view;
@@ -135,8 +135,8 @@ public class ResultadoFilmeFragment extends Fragment {
     }
 
     public void initViews(View view){
-        imagemFilme = view.findViewById(R.id.imagemFilme);
-        nomeFilme = view.findViewById(R.id.nomeFilme_id);
+        imagemFilme = view.findViewById(R.id.imagemFilmeDetalhe);
+        nomeFilme = view.findViewById(R.id.nomeDetalheFilme_id);
         sinopseDoFilme = view.findViewById(R.id.textview_descricao_da_sinopse_id);
         elencoDoFilme = view.findViewById(R.id.textview_descricao_do_elenco_id);
         notaDoFilme = view.findViewById(R.id.notaFilme_id);
