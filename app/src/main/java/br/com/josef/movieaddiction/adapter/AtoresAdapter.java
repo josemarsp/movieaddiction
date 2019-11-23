@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.interfaces.RVOnClickAtores;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickAtores;
 import br.com.josef.movieaddiction.model.AtoresModel;
 
 public class AtoresAdapter extends RecyclerView.Adapter<AtoresAdapter.ViewHolder> {

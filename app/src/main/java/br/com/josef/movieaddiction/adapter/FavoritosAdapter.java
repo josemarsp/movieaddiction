@@ -1,5 +1,4 @@
 package br.com.josef.movieaddiction.adapter;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.interfaces.RVOnClickFavoritos;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFavoritos;
 import br.com.josef.movieaddiction.model.FavoritosModel;
 
 public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.ViewHolder> {

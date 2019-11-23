@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.PrincipalActivity"></activity>
-        <activity android:name=".views.CadastroActivity" />
-        <activity android:name=".views.SplashActivity">
+        <activity android:name=".views.activity.PrincipalActivity"></activity>
+        <activity android:name=".views.activity.CadastroActivity" />
+        <activity android:name=".views.activity.SplashActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,14 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.MainActivity">
+        <activity android:name=".views.activity.MainActivity">
             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.GeralProVideoActivity"
+        <activity android:name=".views.activity.GeralProVideoActivity"
             android:screenOrientation="sensorLandscape"/>
     </application>
 

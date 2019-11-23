@@ -11,14 +11,9 @@
         android:icon="@drawable/ic_minhalista_24dp"
         android:title="Minha Lista" />
 
-    <item
-        android:id="@+id/navigation_categorias"
-        android:icon="@drawable/ic_categorias_24dp"
-        android:title="Categorias" />
-
-    <item
-        android:id="@+id/navigation_paparazzi"
+        <item
+        android:id="@+id/navigation_perfil"
         android:icon="@drawable/ic_paparazzi_24dp"
-        android:title="Paparazzi" />
+        android:title="Perfil" />
 
 </menu>
