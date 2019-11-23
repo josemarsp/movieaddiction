@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,8 @@ import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
 import br.com.josef.movieaddiction.vielmodel.FilmeNowPlayingViewModel;
 import br.com.josef.movieaddiction.views.adapter.RecyclerViewFilmeAdapter;
 import br.com.josef.movieaddiction.views.interfaces.OnClick;
+
+import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 
 /**
@@ -58,10 +62,10 @@ public class HomeFragment extends Fragment implements OnClick {
             adapter.atualizaLista(resultadoLista);
         });
 
-        viewModel.getLoading().observe(this, loading ->{
-            if(loading){
+        viewModel.getLoading().observe(this, loading -> {
+            if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 progressBar.setVisibility(View.GONE);
             }
         });
@@ -72,11 +76,24 @@ public class HomeFragment extends Fragment implements OnClick {
     }
 
     @Override
+
     public void click(FilmeNowPlaying filmeNowPlaying) {
 
-
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(FILME_KEY, filmeNowPlaying);
+        Fragment resultadoFilmeFragment = new ResultadoFilmeFragment();
+        resultadoFilmeFragment.setArguments(bundle);
+        replaceFragment(resultadoFilmeFragment);
 
     }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.containerPrincipal, fragment);
+        transaction.commit();
+    }
+
 
     private void initViews(View view) {
         adapter = new RecyclerViewFilmeAdapter(filmeNowPlayingList, this);

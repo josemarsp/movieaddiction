@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imagemFilme"
+        android:id="@+id/imagemFilmeDetalhe"
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginBottom="410dp"
@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/nomeFilme_id"
+        android:id="@+id/nomeDetalheFilme_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -36,7 +36,7 @@
         android:textColor="@color/purple"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagemFilme" />
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
 
     <TextView
         android:id="@+id/sloganFilme_id"
@@ -49,7 +49,7 @@
         android:textColor="@color/purple"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeFilme_id" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeDetalheFilme_id" />
 
     <ImageView
         android:id="@+id/iconeRating"
@@ -58,8 +58,8 @@
         android:layout_marginStart="192dp"
         android:layout_marginLeft="192dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/nomeFilme_id"
-        app:layout_constraintTop_toBottomOf="@+id/imagemFilme"
+        app:layout_constraintStart_toEndOf="@+id/nomeDetalheFilme_id"
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe"
         app:srcCompat="@drawable/rating" />
 
     <TextView
@@ -74,7 +74,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iconeFavoritar"
-        app:layout_constraintTop_toBottomOf="@+id/imagemFilme" />
+        app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
 
     <View
         android:id="@+id/view"

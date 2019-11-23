@@ -67,8 +67,8 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imagemFilme = itemView.findViewById(R.id.imagemFilme);
-            nomeFilme = itemView.findViewById(R.id.nomeFilme_id);
+            imagemFilme = itemView.findViewById(R.id.imagemFilmeDetalhe);
+            nomeFilme = itemView.findViewById(R.id.nomeDetalheFilme_id);
         }
 
         public void onBind(FilmesModel filmes){
