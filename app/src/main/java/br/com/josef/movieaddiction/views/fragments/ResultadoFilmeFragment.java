@@ -4,16 +4,15 @@ package br.com.josef.movieaddiction.views.fragments;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
@@ -86,7 +85,7 @@ public class ResultadoFilmeFragment extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.conainter_principal_id, fragment);
+                t.replace(R.id.containerPrincipal, fragment);
                 t.addToBackStack(null);
                 t.commit();
             }
@@ -102,7 +101,7 @@ public class ResultadoFilmeFragment extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.conainter_principal_id, fragment);
+                t.replace(R.id.containerPrincipal, fragment);
                 t.addToBackStack(null);
                 t.commit();
             }
@@ -128,7 +127,7 @@ public class ResultadoFilmeFragment extends Fragment {
 
                 FragmentManager fragmentManager = ResultadoFilmeFragment.this.getActivity().getSupportFragmentManager();
                 FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.conainter_principal_id, fragment);
+                t.replace(R.id.containerPrincipal, fragment);
                 t.commit();
 
             }

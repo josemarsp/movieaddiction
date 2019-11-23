@@ -2,6 +2,10 @@ package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,19 +13,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoriaRetorno;
-import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 
 import static br.com.josef.movieaddiction.views.fragments.CategoriasFragment.CATEGORIA_KEY;
 import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
@@ -124,7 +123,7 @@ public class ListaDeFilmesPorCategoriaFragment extends Fragment implements RVOnC
     public void replaceFragment (Fragment fragment){
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.conainter_principal_id, fragment);
+        transaction.replace(R.id.containerPrincipal, fragment);
         transaction.commit();
     }
 }

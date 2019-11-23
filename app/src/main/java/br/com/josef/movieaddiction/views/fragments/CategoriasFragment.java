@@ -2,6 +2,9 @@ package br.com.josef.movieaddiction.views.fragments;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,17 +12,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoria;
-import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 import br.com.josef.movieaddiction.model.CategoriasListas;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 
 
 public class CategoriasFragment extends Fragment implements RVOnClickCategorias {
@@ -91,7 +90,7 @@ public class CategoriasFragment extends Fragment implements RVOnClickCategorias 
     public void replaceFragment (Fragment fragment){
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.conainter_principal_id, fragment);
+        transaction.replace(R.id.containerPrincipal, fragment);
         transaction.commit();
     }
 

@@ -1,60 +1,77 @@
 package br.com.josef.movieaddiction.views.activity;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.views.fragments.CategoriasFragment;
 import br.com.josef.movieaddiction.views.fragments.HomeFragment;
 import br.com.josef.movieaddiction.views.fragments.MinhaListaFragment;
-import br.com.josef.movieaddiction.views.fragments.PerfilInternoFragment;
 import br.com.josef.movieaddiction.views.fragments.PesquisaAtoresFragment;
 
-public class PrincipalActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class PrincipalActivity extends AppCompatActivity {//implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private BottomNavigationView bottomNavigationView;
-    FragmentManager fragmentManager;
+    //private BottomNavigationView bottomNavigationView;
+    //FragmentManager fragmentManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        getSupportActionBar().hide();
 
-        initViews();
+        replaceFragment(new HomeFragment());
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        openFragment(new HomeFragment());
+        //     initViews();
 
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.conainter_principal_id, new HomeFragment()).commit();
+        //bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        // fragmentManager = getSupportFragmentManager();
+        // fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new HomeFragment()).commit();
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_minha_lista, R.id.navigation_perfil)
+                .build();
+
+        navView.setOnNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+
+            if (id == R.id.navigation_home){
+                replaceFragment(new HomeFragment());
+
+            }else if(id == R.id.navigation_minha_lista){
+                replaceFragment(new MinhaListaFragment());
+
+            }else if(id == R.id.navigation_perfil){
+                replaceFragment(new PesquisaAtoresFragment());
+            }
+                return true;
+
+        });
 
 
-//todo: como fazer minha parte
-//todo e o pojo ta certo?
-//        me explica a diferenca entre comunicacao entre fragment com ativitity e vice versa. pq ja sei frag pra frag e act p act
+
 
     }
-
-    private void initViews() {
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
-
-
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.containerPrincipal, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
+//    private void initViews() {
+//        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
+//    }
+
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -64,6 +81,7 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -79,7 +97,7 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
         if (id == R.id.perfil) {
 
             Objects.requireNonNull(getSupportActionBar()).setTitle("Perfil");
-            fragmentManager.beginTransaction().replace(R.id.conainter_principal_id, new PerfilInternoFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new PerfilInternoFragment()).commit();
 
             return true;
         }
@@ -95,27 +113,27 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
             case R.id.navigation_home: {
 
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
-                Fragment homeFragment = HomeFragment.newInstance();
-                openFragment(homeFragment);
+                // Fragment homeFragment = HomeFragment.newInstance();
+                replaceFragment(new HomeFragment());
                 break;
             }
             case R.id.navigation_minha_lista: {
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Minha Lista");
                 Fragment minhaListaFragment = MinhaListaFragment.newInstance();
-                openFragment(minhaListaFragment);
+                replaceFragment(minhaListaFragment);
                 break;
 
             }
             case R.id.navigation_categorias: {
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Categorias");
                 Fragment categoriasFragment = CategoriasFragment.newInstance();
-                openFragment(categoriasFragment);
+                replaceFragment(categoriasFragment);
                 break;
             }
             case R.id.navigation_paparazzi: {
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Paparazzi");
                 Fragment paparazziFragment = PesquisaAtoresFragment.newInstance();
-                openFragment(paparazziFragment);
+                replaceFragment(paparazziFragment);
                 break;
             }
         }
@@ -123,12 +141,7 @@ public class PrincipalActivity extends AppCompatActivity implements BottomNaviga
         return true;
     }
 
-    private void openFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.conainter_principal_id, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
 
+*/
 
 }

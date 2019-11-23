@@ -1,15 +1,15 @@
 package br.com.josef.movieaddiction.views.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     private void setFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction t = fragmentManager.beginTransaction();
-        t.replace(R.id.conainter_principal_id, fragment);
+        t.replace(R.id.containerPrincipal, fragment);
         t.commit();
     }
 

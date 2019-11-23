@@ -12,7 +12,7 @@
         android:background="@color/background_black">
 
         <ImageView
-            android:id="@+id/imgFilmeHome"
+            android:id="@+id/imgFilme"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@color/background_black"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtTituloItemHome"
+            android:id="@+id/txtTituloItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/background_black"
@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgFilmeHome"
+            app:layout_constraintTop_toBottomOf="@+id/imgFilme"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
