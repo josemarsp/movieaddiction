@@ -56,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textColorHint="#fff" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
+            android:inputType="textPassword"
             android:textColorHint="#fff" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,7 +103,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Idade" />
+            android:hint="Idade"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
