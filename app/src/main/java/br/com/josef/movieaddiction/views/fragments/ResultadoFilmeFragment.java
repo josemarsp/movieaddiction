@@ -138,14 +138,11 @@ public class ResultadoFilmeFragment extends Fragment {
         imagemFilme = view.findViewById(R.id.imagemFilmeDetalhe);
         nomeFilme = view.findViewById(R.id.nomeDetalheFilme_id);
         sinopseDoFilme = view.findViewById(R.id.textview_descricao_da_sinopse_id);
-        elencoDoFilme = view.findViewById(R.id.textview_descricao_do_elenco_id);
         notaDoFilme = view.findViewById(R.id.notaFilme_id);
         anoDeLancamento = view.findViewById(R.id.textAno_id);
         tempoDeDuracao = view.findViewById(R.id.textDuracao_id);
         idadeRecomendada = view.findViewById(R.id.textCensura_id);
         categoriaDoFilme = view.findViewById(R.id.textGenero_id);
-        iconeNaoAssitido = view.findViewById(R.id.icon_naoassitido_id);
-        iconeJaAssistido = view.findViewById(R.id.icon_jaassistido_id);
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
         iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
