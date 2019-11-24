@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_minha_lista"
-        android:icon="@drawable/ic_minhalista_24dp"
-        android:title="Minha Lista" />
+        android:icon="@drawable/favoritos_selecionado"
+        android:title="Favorites" />
 
         <item
         android:id="@+id/navigation_perfil"
         android:icon="@drawable/ic_paparazzi_24dp"
-        android:title="Perfil" />
+        android:title="Profile" />
 
 </menu>

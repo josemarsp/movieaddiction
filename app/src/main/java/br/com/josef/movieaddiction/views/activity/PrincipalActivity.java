@@ -11,7 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.fragments.HomeFragment;
-import br.com.josef.movieaddiction.views.fragments.MinhaListaFragment;
+import br.com.josef.movieaddiction.views.fragments.ListaDeFavoritosFragment;
 import br.com.josef.movieaddiction.views.fragments.PesquisaAtoresFragment;
 
 public class PrincipalActivity extends AppCompatActivity {//implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -47,7 +47,7 @@ public class PrincipalActivity extends AppCompatActivity {//implements BottomNav
                 replaceFragment(new HomeFragment());
 
             }else if(id == R.id.navigation_minha_lista){
-                replaceFragment(new MinhaListaFragment());
+                replaceFragment(new ListaDeFavoritosFragment());
 
             }else if(id == R.id.navigation_perfil){
                 replaceFragment(new PesquisaAtoresFragment());
