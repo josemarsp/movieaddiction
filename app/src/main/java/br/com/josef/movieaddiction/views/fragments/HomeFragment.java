@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +68,10 @@ public class HomeFragment extends Fragment implements OnClick {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
+                Snackbar
+                        .make(view, "Check your internet connection", Snackbar.LENGTH_LONG)
+                        .show();
+                
                 progressBar.setVisibility(View.GONE);
             }
         });
