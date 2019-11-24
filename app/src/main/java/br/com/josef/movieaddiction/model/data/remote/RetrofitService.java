@@ -1,10 +1,10 @@
 package br.com.josef.movieaddiction.model.data.remote;
 
-import com.facebook.stetho.okhttp3.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
+import br.com.josef.movieaddiction.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
