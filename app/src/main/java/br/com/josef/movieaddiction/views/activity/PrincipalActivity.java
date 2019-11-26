@@ -1,6 +1,8 @@
 package br.com.josef.movieaddiction.views.activity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,11 +14,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.fragments.HomeFragment;
 import br.com.josef.movieaddiction.views.fragments.ListaDeFavoritosFragment;
-import br.com.josef.movieaddiction.views.fragments.PesquisaAtoresFragment;
+import br.com.josef.movieaddiction.views.fragments.PerfilInternoFragment;
 
-public class PrincipalActivity extends AppCompatActivity {//implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class PrincipalActivity extends AppCompatActivity {
 
-    //private BottomNavigationView bottomNavigationView;
+   // private BottomNavigationView bottomNavigationView;
     //FragmentManager fragmentManager;
 
 
@@ -25,13 +27,13 @@ public class PrincipalActivity extends AppCompatActivity {//implements BottomNav
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        getSupportActionBar().hide();
+        getSupportActionBar();
 
         replaceFragment(new HomeFragment());
 
         //     initViews();
 
-        //bottomNavigationView.setOnNavigationItemSelectedListener(this);
+      //  bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // fragmentManager = getSupportFragmentManager();
         // fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new HomeFragment()).commit();
@@ -50,37 +52,20 @@ public class PrincipalActivity extends AppCompatActivity {//implements BottomNav
                 replaceFragment(new ListaDeFavoritosFragment());
 
             }else if(id == R.id.navigation_perfil){
-                replaceFragment(new PesquisaAtoresFragment());
+                replaceFragment(new PerfilInternoFragment());
             }
                 return true;
 
         });
 
-
-
-
-    }
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.containerPrincipal, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 
-//    private void initViews() {
-//        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
-//    }
-
-    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
-
         return true;
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -94,16 +79,30 @@ public class PrincipalActivity extends AppCompatActivity {//implements BottomNav
             return true;
         }
 
-        if (id == R.id.perfil) {
-
-            Objects.requireNonNull(getSupportActionBar()).setTitle("Perfil");
-            fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new PerfilInternoFragment()).commit();
-
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.containerPrincipal, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+
+
+//    private void initViews() {
+//        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
+//    }
+
+    /*
+
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override

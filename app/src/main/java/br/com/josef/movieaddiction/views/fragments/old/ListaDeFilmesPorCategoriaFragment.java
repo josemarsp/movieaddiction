@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views.fragments;
+package br.com.josef.movieaddiction.views.fragments.old;
 
 
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoriaRetorno;
 import br.com.josef.movieaddiction.model.CategoriasListas;
 import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.views.fragments.ResultadoFilmeFragment;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 
 import static br.com.josef.movieaddiction.views.fragments.CategoriasFragment.CATEGORIA_KEY;

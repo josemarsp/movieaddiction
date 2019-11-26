@@ -19,6 +19,8 @@ import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.FilmesModel;
 import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
 import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
+import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmeAssistidosFragment;
+import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesNaoAssistidosFragment;
 
 import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
@@ -37,7 +39,7 @@ public class ResultadoFilmeFragment extends Fragment {
     private TextView tempoDeDuracao;
     private TextView idadeRecomendada;
     private TextView categoriaDoFilme;
-//todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
+    //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
 //esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
     private ImageView iconeNaoAssitido;
     private ImageView iconeJaAssistido;
@@ -57,16 +59,24 @@ public class ResultadoFilmeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultado_filme, container, false);
 
         initViews(view);
-        initIcons();
+        //initIcons();
 
-        if (getArguments() != null){
+        if (getArguments() != null) {
 
 
             FilmeNowPlaying filmeNowPlaying = getArguments().getParcelable(FILME_KEY);
             Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filmeNowPlaying.getBackdropPath()).into(imagemFilme);
             nomeFilme.setText(filmeNowPlaying.getTitle());
             sinopseDoFilme.setText(filmeNowPlaying.getOverview());
-            
+            notaDoFilme.setText(filmeNowPlaying.getVoteAverage().toString());
+
+            String[] data = filmeNowPlaying.getReleaseDate().split("-");
+            anoDeLancamento.setText(data[2]+"/"+data[1]+"/"+data[0]);
+
+
+
+
+
         }
 
         return view;
@@ -110,7 +120,7 @@ public class ResultadoFilmeFragment extends Fragment {
         iconeTrailler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),GeralProVideoActivity.class);
+                Intent intent = new Intent(getActivity(), GeralProVideoActivity.class);
                 intent.putExtra(FILME_KEY, filme);
                 startActivity(intent);
             }
@@ -134,11 +144,11 @@ public class ResultadoFilmeFragment extends Fragment {
         });
     }
 
-    public void initViews(View view){
+    public void initViews(View view) {
         imagemFilme = view.findViewById(R.id.imagemFilmeDetalhe);
         nomeFilme = view.findViewById(R.id.nomeDetalheFilme_id);
         sinopseDoFilme = view.findViewById(R.id.textview_descricao_da_sinopse_id);
-        notaDoFilme = view.findViewById(R.id.notaFilme_id);
+        notaDoFilme = view.findViewById(R.id.notaFilmeDetalhe_id);
         anoDeLancamento = view.findViewById(R.id.textAno_id);
         tempoDeDuracao = view.findViewById(R.id.textDuracao_id);
         idadeRecomendada = view.findViewById(R.id.textCensura_id);
@@ -150,4 +160,4 @@ public class ResultadoFilmeFragment extends Fragment {
     }
 
 
-    }
+}

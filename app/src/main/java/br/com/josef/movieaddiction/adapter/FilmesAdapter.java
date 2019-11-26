@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.views.fragments.ListaDeFilmesPorCategoriaFragment;
+import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesPorCategoriaFragment;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 import br.com.josef.movieaddiction.model.FilmesModel;
 
