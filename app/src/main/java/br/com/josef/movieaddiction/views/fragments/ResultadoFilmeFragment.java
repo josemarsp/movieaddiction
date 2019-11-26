@@ -39,11 +39,11 @@ public class ResultadoFilmeFragment extends Fragment {
     private TextView tempoDeDuracao;
     private TextView idadeRecomendada;
     private TextView categoriaDoFilme;
+    private ImageView iconeTrailler;
     //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
 //esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
     private ImageView iconeNaoAssitido;
     private ImageView iconeJaAssistido;
-    private ImageView iconeTrailler;
     private ImageView iconeFavorito;
     private ImageView iconeCompartilhar;
 
@@ -69,13 +69,10 @@ public class ResultadoFilmeFragment extends Fragment {
             nomeFilme.setText(filmeNowPlaying.getTitle());
             sinopseDoFilme.setText(filmeNowPlaying.getOverview());
             notaDoFilme.setText(filmeNowPlaying.getVoteAverage().toString());
+//            todo: fazer o endpoint do trailler
 
             String[] data = filmeNowPlaying.getReleaseDate().split("-");
             anoDeLancamento.setText(data[2]+"/"+data[1]+"/"+data[0]);
-
-
-
-
 
         }
 
