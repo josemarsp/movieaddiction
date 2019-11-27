@@ -20,24 +20,23 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
-import br.com.josef.movieaddiction.vielmodel.FilmeNowPlayingViewModel;
+import br.com.josef.movieaddiction.vielmodel.FilmeViewModel;
 import br.com.josef.movieaddiction.views.adapter.RecyclerViewFilmeAdapter;
-import br.com.josef.movieaddiction.views.interfaces.OnClick;
-
-import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
+import br.com.josef.movieaddiction.views.interfaces.OnClickFilmePlayingNow;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements OnClick {
+public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
     private RecyclerView recyclerView;
     private RecyclerViewFilmeAdapter adapter;
     private List<FilmeNowPlaying> filmeNowPlayingList = new ArrayList<>();
-    private FilmeNowPlayingViewModel viewModel;
+    private FilmeViewModel viewModel;
     private ProgressBar progressBar;
     private int pagina = 1;
     public static final String API_KEY = "bde8033d3274c91b292a5293c6349052";
+    public static final String MOVIE_ID_KEY = "movieIdKey";
 
 
     public HomeFragment() {
@@ -62,7 +61,7 @@ public class HomeFragment extends Fragment implements OnClick {
             adapter.atualizaLista(resultadoLista);
         });
 
-        viewModel.getLoading().observe(this, loading -> {
+        viewModel.getLoading().observe(this, (Boolean loading) -> {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
@@ -80,7 +79,8 @@ public class HomeFragment extends Fragment implements OnClick {
     public void click(FilmeNowPlaying filmeNowPlaying) {
 
         Bundle bundle = new Bundle();
-        bundle.putParcelable(FILME_KEY, filmeNowPlaying);
+        bundle.putString(MOVIE_ID_KEY, String.valueOf(filmeNowPlaying.getId()));
+       // bundle.putParcelable(FILME_KEY, filmeNowPlaying);
         Fragment resultadoFilmeFragment = new ResultadoFilmeFragment();
         resultadoFilmeFragment.setArguments(bundle);
         replaceFragment(resultadoFilmeFragment);
@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment implements OnClick {
     private void initViews(View view) {
         adapter = new RecyclerViewFilmeAdapter(filmeNowPlayingList, this);
         recyclerView = view.findViewById(R.id.recyclerview_filmes);
-        viewModel = ViewModelProviders.of(this).get(FilmeNowPlayingViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(FilmeViewModel.class);
         progressBar = view.findViewById(R.id.progressBar);
 
     }

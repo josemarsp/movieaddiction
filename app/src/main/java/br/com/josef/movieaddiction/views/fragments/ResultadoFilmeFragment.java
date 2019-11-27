@@ -12,24 +12,25 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.squareup.picasso.Picasso;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.model.FilmesModel;
-import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
+import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
+import br.com.josef.movieaddiction.vielmodel.FilmeViewModel;
 import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
 import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmeAssistidosFragment;
 import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesNaoAssistidosFragment;
 
-import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.HomeFragment.API_KEY;
+import static br.com.josef.movieaddiction.views.fragments.HomeFragment.MOVIE_ID_KEY;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ResultadoFilmeFragment extends Fragment {
-    private FilmesModel filme;
-
+    private Filme filme;
     private ImageView imagemFilme;
     private TextView nomeFilme;
     private TextView sinopseDoFilme;
@@ -39,6 +40,7 @@ public class ResultadoFilmeFragment extends Fragment {
     private TextView tempoDeDuracao;
     private TextView idadeRecomendada;
     private TextView categoriaDoFilme;
+    private FilmeViewModel viewModel;
     //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
 //esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
     private ImageView iconeNaoAssitido;
@@ -63,16 +65,21 @@ public class ResultadoFilmeFragment extends Fragment {
 
         if (getArguments() != null) {
 
+            String bundle = getArguments().getString(MOVIE_ID_KEY);
+            int bundleId = Integer.parseInt(bundle);
+            viewModel.getFilmeId(bundleId, API_KEY);
 
-            FilmeNowPlaying filmeNowPlaying = getArguments().getParcelable(FILME_KEY);
-            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filmeNowPlaying.getBackdropPath()).into(imagemFilme);
-            nomeFilme.setText(filmeNowPlaying.getTitle());
-            sinopseDoFilme.setText(filmeNowPlaying.getOverview());
-            notaDoFilme.setText(filmeNowPlaying.getVoteAverage().toString());
+            viewModel.getFilme().observe(this, filme1 -> {
+                Filme filme = new Filme(filme1.getBackdropPath(), filme1.getBudget(), filme1.getGenres(), filme1.getHomepage(), filme1.getId(), filme1.getImdbId(), filme1.getOriginalLanguage(), filme1.getOriginalTitle(), filme1.getOverview(), filme1.getPosterPath(), filme1.getReleaseDate(), filme1.getTitle(), filme1.getVideo(), filme1.getVoteAverage());
+                nomeFilme.setText(filme.getTitle());
+                sinopseDoFilme.setText(filme.getOverview());
+                notaDoFilme.setText(filme.getVoteAverage().toString());
 
-            String[] data = filmeNowPlaying.getReleaseDate().split("-");
-            anoDeLancamento.setText(data[2]+"/"+data[1]+"/"+data[0]);
+                String[] data = filme.getReleaseDate().split("-");
+                anoDeLancamento.setText(data[2] + "/" + data[1] + "/" + data[0]);
+                Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
 
+            });
 
 
 
@@ -89,7 +96,7 @@ public class ResultadoFilmeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                // bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
                 Fragment fragment = new ListaDeFilmeAssistidosFragment();
                 fragment.setArguments(bundle);
 
@@ -105,7 +112,7 @@ public class ResultadoFilmeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                //  bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
                 Fragment fragment = new ListaDeFilmesNaoAssistidosFragment();
                 fragment.setArguments(bundle);
 
@@ -121,7 +128,7 @@ public class ResultadoFilmeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GeralProVideoActivity.class);
-                intent.putExtra(FILME_KEY, filme);
+                // intent.putExtra(FILME_KEY, filme);
                 startActivity(intent);
             }
         });
@@ -131,7 +138,7 @@ public class ResultadoFilmeFragment extends Fragment {
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+                //bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
                 Fragment fragment = new ListaDeFavoritosFragment();
                 fragment.setArguments(bundle);
 
@@ -156,8 +163,8 @@ public class ResultadoFilmeFragment extends Fragment {
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
         iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
+        viewModel = ViewModelProviders.of(this).get(FilmeViewModel.class);
 
     }
-
 
 }

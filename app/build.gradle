@@ -77,11 +77,17 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+
+
     /*############################ RecyclerView e outros##########################################*/
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0' /*Google Login*/
+
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+
 
 
 }

@@ -17,14 +17,14 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
-import br.com.josef.movieaddiction.views.interfaces.OnClick;
+import br.com.josef.movieaddiction.views.interfaces.OnClickFilmePlayingNow;
 
 public class RecyclerViewFilmeAdapter extends RecyclerView.Adapter<RecyclerViewFilmeAdapter.ViewHolder> {
 
     private List<FilmeNowPlaying> filmeNowPlayingList;
-    private OnClick listener;
+    private OnClickFilmePlayingNow listener;
 
-    public RecyclerViewFilmeAdapter(List<FilmeNowPlaying> filmeNowPlayingList, OnClick listener) {
+    public RecyclerViewFilmeAdapter(List<FilmeNowPlaying> filmeNowPlayingList, OnClickFilmePlayingNow listener) {
         this.filmeNowPlayingList = filmeNowPlayingList;
         this.listener = listener;
     }

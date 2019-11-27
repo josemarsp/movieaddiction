@@ -11,24 +11,32 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
+import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
-import br.com.josef.movieaddiction.repository.FilmeRepository;
+import br.com.josef.movieaddiction.repository.FilmeIdRepository;
+import br.com.josef.movieaddiction.repository.FilmeNowPlayingRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FilmeNowPlayingViewModel extends AndroidViewModel {
+public class FilmeViewModel extends AndroidViewModel {
     private MutableLiveData<List<FilmeNowPlaying>> listaFilme = new MutableLiveData<>();
+    private MutableLiveData<Filme> filme = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
-    private FilmeRepository repository = new FilmeRepository();
+    private FilmeNowPlayingRepository repository = new FilmeNowPlayingRepository();
+    private FilmeIdRepository idRepository = new FilmeIdRepository();
 
-    public FilmeNowPlayingViewModel(@NonNull Application application) {
+    public FilmeViewModel(@NonNull Application application) {
         super(application);
     }
 
     public LiveData<List<FilmeNowPlaying>> getListaFilme() {
         return this.listaFilme;
+    }
+
+    public LiveData<Filme> getFilme(){
+        return this.filme;
     }
 
     public LiveData<Boolean> getLoading(){
@@ -47,9 +55,21 @@ public class FilmeNowPlayingViewModel extends AndroidViewModel {
                         }, throwable -> {
                             Log.i("LOG", "erro  " + throwable.getMessage());
                         })
-
         );
 
+    }
+
+    public void getFilmeId(int movie_id, String apiKey){
+        disposable.add(
+                idRepository.getFilmeId(movie_id, apiKey)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(filme1 -> {
+                    filme.setValue(filme1);
+                }, throwable -> {
+                    Log.i("LOG", "erro "+throwable.getMessage());
+                })
+        );
     }
 
     @Override
