@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
+import br.com.josef.movieaddiction.model.pojos.movieid.Genre;
 import br.com.josef.movieaddiction.vielmodel.FilmeViewModel;
 import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
 import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmeAssistidosFragment;
@@ -38,8 +39,11 @@ public class ResultadoFilmeFragment extends Fragment {
     private TextView notaDoFilme;
     private TextView anoDeLancamento;
     private TextView tempoDeDuracao;
-    private TextView idadeRecomendada;
     private TextView categoriaDoFilme;
+    private TextView slogan;
+    private TextView bilheteria;
+    private TextView orcamento;
+    private TextView idioma;
     private FilmeViewModel viewModel;
     //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
 //esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
@@ -70,18 +74,46 @@ public class ResultadoFilmeFragment extends Fragment {
             viewModel.getFilmeId(bundleId, API_KEY);
 
             viewModel.getFilme().observe(this, filme1 -> {
-                Filme filme = new Filme(filme1.getBackdropPath(), filme1.getBudget(), filme1.getGenres(), filme1.getHomepage(), filme1.getId(), filme1.getImdbId(), filme1.getOriginalLanguage(), filme1.getOriginalTitle(), filme1.getOverview(), filme1.getPosterPath(), filme1.getReleaseDate(), filme1.getTitle(), filme1.getVideo(), filme1.getVoteAverage());
+                Filme filme = new Filme(
+                        filme1.getRevenue(),
+                        filme1.getTagline(),
+                        filme1.getRuntime(),
+                        filme1.getBackdropPath(),
+                        filme1.getBudget(),
+                        filme1.getGenres(),
+                        filme1.getHomepage(),
+                        filme1.getId(),
+                        filme1.getImdbId(),
+                        filme1.getOriginalLanguage(),
+                        filme1.getOriginalTitle(),
+                        filme1.getOverview(),
+                        filme1.getPosterPath(),
+                        filme1.getReleaseDate(),
+                        filme1.getTitle(),
+                        filme1.getVideo(),
+                        filme1.getVoteAverage());
                 nomeFilme.setText(filme.getTitle());
                 sinopseDoFilme.setText(filme.getOverview());
                 notaDoFilme.setText(filme.getVoteAverage().toString());
+                tempoDeDuracao.setText(filme.getRuntime().toString() + "”");
+                slogan.setText(filme.getTagline());
+
+                String generos = null;
+                for (Genre i : filme.getGenres()) {
+                    if (generos == null) {
+                        generos = i.getName();
+                    } else {
+                        generos = generos + ", " + i.getName();
+                    }
+                }
+
 
                 String[] data = filme.getReleaseDate().split("-");
                 anoDeLancamento.setText(data[2] + "/" + data[1] + "/" + data[0]);
+
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
 
             });
-
-
 
 
         }
@@ -158,8 +190,10 @@ public class ResultadoFilmeFragment extends Fragment {
         notaDoFilme = view.findViewById(R.id.notaFilmeDetalhe_id);
         anoDeLancamento = view.findViewById(R.id.textAno_id);
         tempoDeDuracao = view.findViewById(R.id.textDuracao_id);
-        idadeRecomendada = view.findViewById(R.id.textCensura_id);
         categoriaDoFilme = view.findViewById(R.id.textGenero_id);
+        slogan = view.findViewById(R.id.textview_titulo_da_slogan);
+//                bilheteria
+//        orcamento
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
         iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);

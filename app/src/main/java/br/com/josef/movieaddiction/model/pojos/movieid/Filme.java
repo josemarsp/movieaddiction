@@ -124,7 +124,11 @@ public class Filme {
         return bdId;
     }
 
-    public Filme(String backdropPath, Long budget, List<Genre> genres, String homepage, Long id, String imdbId, String originalLanguage, String originalTitle, String overview, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage) {
+
+    public Filme(Long revenue, String tagline, Long runtime, String backdropPath, Long budget, List<Genre> genres, String homepage, Long id, String imdbId, String originalLanguage, String originalTitle, String overview, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage) {
+        this.revenue = revenue;
+        this.tagline = tagline;
+        this.runtime = runtime;
         this.backdropPath = backdropPath;
         this.budget = budget;
         this.genres = genres;
