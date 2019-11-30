@@ -107,6 +107,7 @@ public class ResultadoFilmeFragment extends Fragment {
                     }
                 }
 
+                categoriaDoFilme.setText(generos);
 
                 String[] data = filme.getReleaseDate().split("-");
                 anoDeLancamento.setText(data[2] + "/" + data[1] + "/" + data[0]);
@@ -190,7 +191,7 @@ public class ResultadoFilmeFragment extends Fragment {
         notaDoFilme = view.findViewById(R.id.notaFilmeDetalhe_id);
         anoDeLancamento = view.findViewById(R.id.textAno_id);
         tempoDeDuracao = view.findViewById(R.id.textDuracao_id);
-        categoriaDoFilme = view.findViewById(R.id.textGenero_id);
+        categoriaDoFilme = view.findViewById(R.id.textGeneroDetalhe_id);
         slogan = view.findViewById(R.id.textview_titulo_da_slogan);
 //                bilheteria
 //        orcamento
