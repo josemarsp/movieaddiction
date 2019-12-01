@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.model;
+package br.com.josef.movieaddiction.model.pojos.old;
 
 public class ListaVideoModel {
     private int imageId;

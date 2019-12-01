@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFavoritos;
-import br.com.josef.movieaddiction.model.FavoritosModel;
+import br.com.josef.movieaddiction.model.pojos.old.FavoritosModel;
 
 public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.ViewHolder> {
 

@@ -9,6 +9,8 @@ import java.util.List;
 
 public class FilmeNowPlayingResult {
 
+
+
     @Expose
     private Dates dates;
     @Expose
@@ -19,6 +21,9 @@ public class FilmeNowPlayingResult {
     private Long totalPages;
     @SerializedName("total_results")
     private Long totalResults;
+
+
+
 
     public Dates getDates() {
         return dates;

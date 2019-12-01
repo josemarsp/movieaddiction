@@ -14,7 +14,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickAtores;
-import br.com.josef.movieaddiction.model.AtoresModel;
+import br.com.josef.movieaddiction.model.pojos.old.AtoresModel;
 
 public class AtoresAdapter extends RecyclerView.Adapter<AtoresAdapter.ViewHolder> {
 

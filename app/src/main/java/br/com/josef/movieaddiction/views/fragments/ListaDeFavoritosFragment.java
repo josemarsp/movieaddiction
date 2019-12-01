@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.FavoritosAdapter;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFavoritos;
-import br.com.josef.movieaddiction.model.FavoritosModel;
+import br.com.josef.movieaddiction.model.pojos.old.FavoritosModel;
 
 public class ListaDeFavoritosFragment extends Fragment implements RVOnClickFavoritos {
 

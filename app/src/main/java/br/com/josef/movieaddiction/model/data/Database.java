@@ -8,7 +8,6 @@ import androidx.room.TypeConverters;
 
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 
-
 @androidx.room.Database(entities = {Filme.class}, version = 1, exportSchema = false)
 @TypeConverters(Converter.class) // Adicionamos os conversores
 public abstract class Database extends RoomDatabase {

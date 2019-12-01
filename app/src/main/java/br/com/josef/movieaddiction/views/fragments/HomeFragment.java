@@ -35,9 +35,8 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
     private FilmeViewModel viewModel;
     private ProgressBar progressBar;
     private int pagina = 1;
-    public static final String API_KEY = "bde8033d3274c91b292a5293c6349052";
+    public static final String API_KEY = "140f376accaf2e163abf3cd16ef3f0b4";
     public static final String MOVIE_ID_KEY = "movieIdKey";
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -56,11 +55,12 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         setScrollView();
 
-        viewModel.getAllFilmes(API_KEY, pagina);
+        viewModel.getFilmesEmCartaz(API_KEY, pagina);
+
         viewModel.getListaFilme().observe(this, resultadoLista -> {
             adapter.atualizaLista(resultadoLista);
         });
-
+        
         viewModel.getLoading().observe(this, (Boolean loading) -> {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -68,7 +68,6 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
                 progressBar.setVisibility(View.GONE);
             }
         });
-
 
         return view;
 
@@ -80,7 +79,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
 
         Bundle bundle = new Bundle();
         bundle.putString(MOVIE_ID_KEY, String.valueOf(filmeNowPlaying.getId()));
-       // bundle.putParcelable(FILME_KEY, filmeNowPlaying);
+        // bundle.putParcelable(FILME_KEY, filmeNowPlaying);
         Fragment resultadoFilmeFragment = new ResultadoFilmeFragment();
         resultadoFilmeFragment.setArguments(bundle);
         replaceFragment(resultadoFilmeFragment);
@@ -127,7 +126,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
 
                 if (totalItemCount > 0 && ultimoItem) {
                     pagina++;
-                    viewModel.getAllFilmes(API_KEY, pagina);
+                    viewModel.getAllFilmesNowPlaying(API_KEY, pagina);
                 }
             }
         });

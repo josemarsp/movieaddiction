@@ -1,7 +1,15 @@
 package br.com.josef.movieaddiction.repository;
 
 
+import android.content.Context;
+
+import java.util.List;
+
+import br.com.josef.movieaddiction.model.data.DatabaseFilmeNowPlaying;
+import br.com.josef.movieaddiction.model.data.FilmeNowPlayingDao;
+import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlaying;
 import br.com.josef.movieaddiction.model.pojos.nowplaying.FilmeNowPlayingResult;
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 
 import static br.com.josef.movieaddiction.model.data.remote.FilmeNowPlayingRetrofitService.getApiService;
@@ -9,8 +17,14 @@ import static br.com.josef.movieaddiction.model.data.remote.FilmeNowPlayingRetro
 
 public class FilmeNowPlayingRepository {
 
-    public Observable<FilmeNowPlayingResult> getFilmes(String apiKey, int pagina) {
-        return getApiService().getAllFilmes(apiKey, pagina);
+    public Observable<FilmeNowPlayingResult> getFilmeNowPlaying(String apiKey, int pagina) {
+        return getApiService().getAllFilmeNowPlaying(apiKey, pagina);
     }
 
+    //dados locais
+    public Flowable<List<FilmeNowPlaying>> getLocalResults(Context context){
+        DatabaseFilmeNowPlaying room = DatabaseFilmeNowPlaying.getDatabase(context);
+        FilmeNowPlayingDao filmeNowPlayingDao = room.filmeNowPlayingDao();
+        return filmeNowPlayingDao.getAll();
+    }
 }

@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesModel;
 
 import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 

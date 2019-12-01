@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.views.fragments;
+package br.com.josef.movieaddiction.views.fragments.old;
 
 
 import android.os.Bundle;
@@ -17,8 +17,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoria;
-import br.com.josef.movieaddiction.model.CategoriasListas;
-import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesPorCategoriaFragment;
+import br.com.josef.movieaddiction.model.pojos.old.CategoriasListas;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 
 

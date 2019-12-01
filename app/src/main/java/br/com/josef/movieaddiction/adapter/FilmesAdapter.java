@@ -15,7 +15,7 @@ import java.util.List;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesPorCategoriaFragment;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
-import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesModel;
 
 public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.ViewHolder> {
 
