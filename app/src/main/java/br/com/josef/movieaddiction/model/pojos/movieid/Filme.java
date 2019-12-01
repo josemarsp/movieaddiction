@@ -31,10 +31,9 @@ public class Filme {
     @PrimaryKey(autoGenerate = true)
     private long bdId;
 
-
-
     @Expose
     private Long id;
+
     @SerializedName("imdb_id")
     private String imdbId;
     @SerializedName("original_language")

@@ -117,8 +117,8 @@
             android:id="@+id/textAno_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/gray"
             android:textSize="16sp"
@@ -130,7 +130,7 @@
             android:id="@+id/textDuracao_id"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/gray"
@@ -203,11 +203,57 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/ic_access_time_black_24dp"
             app:layout_constraintStart_toEndOf="@+id/textAno_id"
+            app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_attach_money_black_24dp"
+            app:layout_constraintStart_toEndOf="@+id/textDuracao_id"
+            app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
+
+        <TextView
+            android:id="@+id/textBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            tools:text="500k"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_monetization_on_black_24dp"
+            app:layout_constraintStart_toEndOf="@+id/textBudget"
+            app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
+
+        <TextView
+            android:id="@+id/txtRevenue"
+            android:layout_width="61dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="8dp"
+            tools:text="1B"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/imagemFilmeDetalhe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

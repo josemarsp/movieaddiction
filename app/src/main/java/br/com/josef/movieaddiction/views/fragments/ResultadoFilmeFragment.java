@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.squareup.picasso.Picasso;
 
+import java.math.BigDecimal;
+
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 import br.com.josef.movieaddiction.model.pojos.movieid.Genre;
@@ -98,6 +100,51 @@ public class ResultadoFilmeFragment extends Fragment {
                 tempoDeDuracao.setText(filme.getRuntime().toString() + "”");
                 slogan.setText(filme.getTagline());
 
+
+                if (filme.getBudget() == 0) {
+                    orcamento.setText("N/A");
+
+                } else if (filme.getBudget() < 999999) {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getBudget());
+                    BigDecimal porMil = new BigDecimal(1000);
+                    bigDecimal = bigDecimal.divide(porMil, BigDecimal.ROUND_DOWN);
+                    orcamento.setText(bigDecimal.toString() + "k");
+
+                } else if (filme.getBudget() < 999999999) {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getBudget());
+                    BigDecimal porMilao = new BigDecimal(1000000);
+                    bigDecimal = bigDecimal.divide(porMilao, BigDecimal.ROUND_DOWN);
+                    orcamento.setText(bigDecimal.toString() + "M");
+                } else {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getBudget());
+                    BigDecimal porBilao = new BigDecimal(1000000000);
+                    bigDecimal = bigDecimal.divide(porBilao);
+                    orcamento.setText(bigDecimal.toString() + "B!");
+                }
+
+
+                if (filme.getRevenue() == 0) {
+                    bilheteria.setText("N/A");
+
+                } else if (filme.getRevenue() < 999999) {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getRevenue());
+                    BigDecimal porMil = new BigDecimal(1000);
+                    bigDecimal = bigDecimal.divide(porMil, BigDecimal.ROUND_UP);
+                    bilheteria.setText(bigDecimal.toString() + "k");
+
+                } else if (filme.getBudget() < 999999999) {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getRevenue());
+                    BigDecimal porMilao = new BigDecimal(1000000);
+                    bigDecimal = bigDecimal.divide(porMilao, BigDecimal.ROUND_UP);
+                    bilheteria.setText(bigDecimal.toString() + "M");
+                } else {
+                    BigDecimal bigDecimal = new BigDecimal(filme.getRevenue());
+                    BigDecimal porBilao = new BigDecimal(1000000000);
+                    bigDecimal = bigDecimal.divide(porBilao, BigDecimal.ROUND_DOWN);
+                    bilheteria.setText(bigDecimal.toString() + "B");
+                }
+
+
                 String generos = null;
                 for (Genre i : filme.getGenres()) {
                     if (generos == null) {
@@ -112,7 +159,11 @@ public class ResultadoFilmeFragment extends Fragment {
                 String[] data = filme.getReleaseDate().split("-");
                 anoDeLancamento.setText(data[2] + "/" + data[1] + "/" + data[0]);
 
-                Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
+                if (filme.getBackdropPath() == null || filme.getBackdropPath().isEmpty()) {
+                    Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getPosterPath()).into(imagemFilme);
+                } else {
+                    Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
+                }
 
             });
 
@@ -193,8 +244,8 @@ public class ResultadoFilmeFragment extends Fragment {
         tempoDeDuracao = view.findViewById(R.id.textDuracao_id);
         categoriaDoFilme = view.findViewById(R.id.textGeneroDetalhe_id);
         slogan = view.findViewById(R.id.textview_titulo_da_slogan);
-//                bilheteria
-//        orcamento
+        bilheteria = view.findViewById(R.id.txtRevenue);
+        orcamento = view.findViewById(R.id.textBudget);
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
         iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
