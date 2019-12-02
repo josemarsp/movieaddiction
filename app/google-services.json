@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "887233489674",
+    "firebase_url": "https://movieaddiction-e79fc.firebaseio.com",
+    "project_id": "movieaddiction-e79fc",
+    "storage_bucket": "movieaddiction-e79fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887233489674:android:ee159337c5fee95334e8f3",
+        "android_client_info": {
+          "package_name": "br.com.josef.movieaddiction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887233489674-geg8nch1vcl1r1em85mutorjopv6ngdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.josef.movieaddiction",
+            "certificate_hash": "d13eb3f15c0f0035d782c286a5881702f70ed05d"
+          }
+        },
+        {
+          "client_id": "887233489674-ai3h2pfiscuri2adk98smqrsn5u6tmd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbl1YlwKLHqyumygfmCDhj4RTfwZOPhwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887233489674-ai3h2pfiscuri2adk98smqrsn5u6tmd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

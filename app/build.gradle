@@ -5,7 +5,7 @@ android {
     buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId "br.com.josef.movieaddiction"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -83,5 +83,25 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0' /*Google Login*/
 
+    // Firebase Analytics
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+
+    // Firebase login
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
+    // Firebase Database
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+
+    // Facebook SDK
+    implementation 'com.facebook.android:facebook-android-sdk:5.9.0'
+
+    // Google login
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    // Firebase Message
+    implementation 'com.google.firebase:firebase-messaging:20.0.1'
+
 
 }
+apply plugin: 'com.google.gms.google-services'
