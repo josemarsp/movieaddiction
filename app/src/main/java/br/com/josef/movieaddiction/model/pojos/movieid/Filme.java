@@ -26,10 +26,14 @@ public class Filme {
     private List<Genre> genres;
     @Expose
     private String homepage;
+
     @Expose
-    // usando id da api para o banco
     @PrimaryKey(autoGenerate = true)
+    private long bdId;
+
+    @Expose
     private Long id;
+
     @SerializedName("imdb_id")
     private String imdbId;
     @SerializedName("original_language")
@@ -113,6 +117,35 @@ public class Filme {
 
     public void setHomepage(String homepage) {
         this.homepage = homepage;
+    }
+
+    public long getBdId() {
+        return bdId;
+    }
+
+
+    public Filme(Long revenue, String tagline, Long runtime, String backdropPath, Long budget, List<Genre> genres, String homepage, Long id, String imdbId, String originalLanguage, String originalTitle, String overview, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage) {
+        this.revenue = revenue;
+        this.tagline = tagline;
+        this.runtime = runtime;
+        this.backdropPath = backdropPath;
+        this.budget = budget;
+        this.genres = genres;
+        this.homepage = homepage;
+        this.id = id;
+        this.imdbId = imdbId;
+        this.originalLanguage = originalLanguage;
+        this.originalTitle = originalTitle;
+        this.overview = overview;
+        this.posterPath = posterPath;
+        this.releaseDate = releaseDate;
+        this.title = title;
+        this.video = video;
+        this.voteAverage = voteAverage;
+    }
+
+    public void setBdId(long bdId) {
+        this.bdId = bdId;
     }
 
     public Long getId() {
