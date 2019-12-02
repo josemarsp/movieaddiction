@@ -1,36 +1,36 @@
-package br.com.josef.movieaddiction.model;
+package br.com.josef.movieaddiction.model.pojos.old;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class FilmesNaoAssistidosModel implements Parcelable {
+public class FilmesAssistidosModel implements Parcelable {
     private int capaDoFilme;
     private String notaDoFilme;
     private String nomeDoFilme;
     private String descricaoDoFilme;
 
-    public FilmesNaoAssistidosModel(int capaDoFilme, String notaDoFilme, String nomeDoFilme, String descricaoDoFilme) {
+    public FilmesAssistidosModel(int capaDoFilme, String notaDoFilme, String nomeDoFilme, String descricaoDoFilme) {
         this.capaDoFilme = capaDoFilme;
         this.notaDoFilme = notaDoFilme;
         this.nomeDoFilme = nomeDoFilme;
         this.descricaoDoFilme = descricaoDoFilme;
     }
 
-    protected FilmesNaoAssistidosModel(Parcel in) {
+    protected FilmesAssistidosModel(Parcel in) {
         capaDoFilme = in.readInt();
         notaDoFilme = in.readString();
         nomeDoFilme = in.readString();
         descricaoDoFilme = in.readString();
     }
 
-    public static final Creator<FilmesNaoAssistidosModel> CREATOR = new Creator<FilmesNaoAssistidosModel>() {
+    public static final Creator<FilmesAssistidosModel> CREATOR = new Creator<FilmesAssistidosModel>() {
         @Override
-        public FilmesNaoAssistidosModel createFromParcel(Parcel in) {
-            return new FilmesNaoAssistidosModel(in);
+        public FilmesAssistidosModel createFromParcel(Parcel in) {
+            return new FilmesAssistidosModel(in);
         }
 
         @Override
-        public FilmesNaoAssistidosModel[] newArray(int size) {
-            return new FilmesNaoAssistidosModel[size];
+        public FilmesAssistidosModel[] newArray(int size) {
+            return new FilmesAssistidosModel[size];
         }
     };
 
@@ -46,8 +46,8 @@ public class FilmesNaoAssistidosModel implements Parcelable {
         return notaDoFilme;
     }
 
-    public void setNotaDoFilme(String notaDoFilme) {
-        this.notaDoFilme = notaDoFilme;
+    public void setNotaDoFilme(double notaDoFilme) {
+        this.notaDoFilme = nomeDoFilme;
     }
 
     public String getNomeDoFilme() {

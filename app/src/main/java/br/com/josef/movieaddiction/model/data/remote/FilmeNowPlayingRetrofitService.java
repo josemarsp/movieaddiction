@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FilmeNowPlayingRetrofitService {
     private static final String BASE_URL = "https://api.themoviedb.org/3/";
-    public static final String API_KEY = "140f376accaf2e163abf3cd16ef3f0b4";
+
 
     private static Retrofit retrofit;
     //copy e paste

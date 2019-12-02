@@ -14,7 +14,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesAssistidos;
-import br.com.josef.movieaddiction.model.FilmesAssistidosModel;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesAssistidosModel;
 
 public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDeFilmesAssistidosAdapter.ViewHolder>{
     private RVOnClickFilmesAssistidos listener;

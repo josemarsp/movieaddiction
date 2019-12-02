@@ -6,21 +6,15 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+/*
+@Query para campos chamadas nominais
+@Path para campos diretos. Ex: @Path("language") String lingua
+ */
 public interface FilmeNowPlayingAPI {
 
     @GET("movie/now_playing")
-    Observable<FilmeNowPlayingResult> getAllFilmes(@Query("api_key") String apiKEY,
-                                                  @Query("page") int pagina);
-    // @Path("language") String lingua);
+    Observable<FilmeNowPlayingResult> getAllFilmeNowPlaying(@Query("api_key") String apiKEY,
+                                                            @Query("page") int pagina);
 
-    //? Query
-    //& Path
-    //
-
-//    @GET ("/movie/{movie_id}/translations")
-//    FilmNowPlaying getId(
-//         @Query("api_key") String apiKey
-//         @Query()
-//    )
 
 }

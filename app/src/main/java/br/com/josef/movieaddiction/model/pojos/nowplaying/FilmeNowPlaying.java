@@ -4,13 +4,19 @@ package br.com.josef.movieaddiction.model.pojos.nowplaying;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-
+@Entity(tableName = "filmeNowPlayng")
 public class FilmeNowPlaying implements Parcelable {
+
+    @PrimaryKey(autoGenerate = true)
+    private long key;
 
     @Expose
     private Boolean adult;
@@ -40,6 +46,17 @@ public class FilmeNowPlaying implements Parcelable {
     private Double voteAverage;
     @SerializedName("vote_count")
     private Long voteCount;
+
+    public FilmeNowPlaying() {
+    }
+
+    public long getKey() {
+        return key;
+    }
+
+    public void setKey(long key) {
+        this.key = key;
+    }
 
     protected FilmeNowPlaying(Parcel in) {
         byte tmpAdult = in.readByte();

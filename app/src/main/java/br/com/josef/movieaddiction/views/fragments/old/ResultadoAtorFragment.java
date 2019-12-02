@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.model.AtoresModel;
+import br.com.josef.movieaddiction.model.pojos.old.AtoresModel;
 
 import static br.com.josef.movieaddiction.views.fragments.old.PesquisaAtoresFragment.ATOR_KEY;
 

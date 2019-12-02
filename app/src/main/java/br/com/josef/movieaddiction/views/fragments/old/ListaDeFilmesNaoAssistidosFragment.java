@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.ListaDeFilmesNaoAssistidosAdapter;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesNaoAssistidos;
-import br.com.josef.movieaddiction.model.FilmesNaoAssistidosModel;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesNaoAssistidosModel;
 
 
 public class ListaDeFilmesNaoAssistidosFragment extends Fragment implements RVOnClickFilmesNaoAssistidos {

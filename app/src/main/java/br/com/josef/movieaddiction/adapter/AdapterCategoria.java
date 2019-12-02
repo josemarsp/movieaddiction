@@ -12,7 +12,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
-import br.com.josef.movieaddiction.model.CategoriasListas;
+import br.com.josef.movieaddiction.model.pojos.old.CategoriasListas;
 
 
 public class AdapterCategoria extends RecyclerView.Adapter <AdapterCategoria.ViewHolder> {

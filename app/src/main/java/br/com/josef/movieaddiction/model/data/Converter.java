@@ -73,6 +73,7 @@ public class Converter {
         return new Gson().fromJson(value, listType);
     }
 
+
     @TypeConverter
     public String fromGenere(Genre list) {
         Gson gson = new Gson();

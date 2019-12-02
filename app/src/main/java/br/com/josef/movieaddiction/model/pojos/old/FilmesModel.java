@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.model;
+package br.com.josef.movieaddiction.model.pojos.old;
 import android.os.Parcel;
 import android.os.Parcelable;
 

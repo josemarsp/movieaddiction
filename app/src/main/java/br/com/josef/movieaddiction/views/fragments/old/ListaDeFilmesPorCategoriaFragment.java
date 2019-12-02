@@ -18,12 +18,12 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.adapter.AdapterCategoriaRetorno;
-import br.com.josef.movieaddiction.model.CategoriasListas;
-import br.com.josef.movieaddiction.model.FilmesModel;
+import br.com.josef.movieaddiction.model.pojos.old.CategoriasListas;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesModel;
 import br.com.josef.movieaddiction.views.fragments.ResultadoFilmeFragment;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 
-import static br.com.josef.movieaddiction.views.fragments.CategoriasFragment.CATEGORIA_KEY;
+import static br.com.josef.movieaddiction.views.fragments.old.CategoriasFragment.CATEGORIA_KEY;
 import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
 
 /**
