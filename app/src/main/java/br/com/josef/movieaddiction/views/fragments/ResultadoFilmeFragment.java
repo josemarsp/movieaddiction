@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -65,7 +66,8 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
         View view = inflater.inflate(R.layout.fragment_resultado_filme, container, false);
 
         initViews(view);
-        initIcons(view);
+
+
 
         if (getArguments() != null) {
 
@@ -172,27 +174,16 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
             }
 
 
+            iconeFavorito.setOnClickListener(v -> {
+                favoritoViewModel.insereFilme(filme);
+                Toast.makeText(getContext(),"Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
+            });
+
         }
 
         return view;
 
 
-    }
-
-    private void initIcons(View view) {
-
-
-//        iconeTrailler.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//            }
-//        });
-
-        
-
-        iconeFavorito.setOnClickListener(v -> {
-            favoritoViewModel.insereFilme(filme);
-        });
     }
 
     public void initViews(View view) {
