@@ -12,4 +12,8 @@
     <string name="bottom_navigator_bar">Barra de navegação</string>
     <string name="loremshort">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.</string>
 
+    <string name="facebook_app_id">356737988503503</string>
+    <string name="fb_login_protocol_scheme">fb356737988503503</string>
+
+
 </resources>
