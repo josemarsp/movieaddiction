@@ -29,7 +29,6 @@ public class FavoritoViewModel extends AndroidViewModel {
     private FilmeDao filmeDao = DatabaseFilme.getDatabase(getApplication()).filmeDao();
 
 
-
     public FavoritoViewModel(@NonNull Application application) {
         super(application);
     }
@@ -43,36 +42,36 @@ public class FavoritoViewModel extends AndroidViewModel {
         return this.filme;
     }
 
-    public void insereFilme( Filme filme){
+
+    public void insereFilme(Filme filmeobj) {
         new Thread(() -> {
-            if (filme !=null) {
-                filmeDao.insert(filme);
+            if (filmeobj != null) {
+                filmeDao.insert(filmeobj);
             }
         }).start();
-        this.filme.setValue(filme);
+        this.filme.setValue(filmeobj);
     }
 
-    public void buscaFavoritos(){
+    public void buscaFavoritos() {
         disposable.add(
-            filmeDao.getAll()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(filmes -> {
-                    listaFilme.setValue(filmes);
-                },
-                        throwable -> {
-                            Log.i("LOG", "Falha na lista de favoritos"+throwable.getMessage());
+                filmeDao.getAll()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(filmes -> {
+                                    listaFilme.setValue(filmes);
+                                },
+                                throwable -> {
+                                    Log.i("LOG", "Falha na lista de favoritos" + throwable.getMessage());
 
-                })
+                                })
         );
     }
+
     @Override
     protected void onCleared() {
         super.onCleared();
         disposable.clear();
     }
-
-
 
 
 }

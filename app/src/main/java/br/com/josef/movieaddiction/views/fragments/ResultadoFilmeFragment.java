@@ -168,16 +168,18 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
                     Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
                 }
 
+                iconeFavorito.setOnClickListener(v -> {
+                    favoritoViewModel.insereFilme(filme);
+                    Toast.makeText(getContext(),"Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
+                });
+
             });
             if (!imagemFilme.isActivated()) {
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + bannerFilme).into(imagemFilme);
             }
 
 
-            iconeFavorito.setOnClickListener(v -> {
-                favoritoViewModel.insereFilme(filme);
-                Toast.makeText(getContext(),"Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
-            });
+
 
         }
 
