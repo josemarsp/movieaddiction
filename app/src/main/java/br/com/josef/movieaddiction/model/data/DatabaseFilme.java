@@ -9,19 +9,19 @@ import androidx.room.TypeConverters;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 
 @androidx.room.Database(entities = {Filme.class}, version = 1, exportSchema = false)
-@TypeConverters(Converter.class) // Adicionamos os conversores
-public abstract class Database extends RoomDatabase {
+@TypeConverters(ConverterFilme.class) // Adicionamos os conversores
+public abstract class DatabaseFilme extends RoomDatabase {
 
     public abstract FilmeDao filmeDao();
 
-    private static volatile Database INSTANCE;
+    private static volatile DatabaseFilme INSTANCE;
 
-    public static Database getDatabase(final Context context) {
+    public static DatabaseFilme getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (Database.class) {
+            synchronized (DatabaseFilme.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            Database.class, "filme_db")
+                            DatabaseFilme.class, "filme_db")
                             .build();
                 }
             }

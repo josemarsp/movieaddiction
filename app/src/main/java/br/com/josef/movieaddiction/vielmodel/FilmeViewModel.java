@@ -76,7 +76,9 @@ public class FilmeViewModel extends AndroidViewModel {
     }
 
     private FilmeNowPlayingResult saveItems(FilmeNowPlayingResult filmeNowPlayingResult) {
-        FilmeNowPlayingDao dao = DatabaseFilmeNowPlaying.getDatabase(getApplication().getApplicationContext())
+        FilmeNowPlayingDao dao = DatabaseFilmeNowPlaying
+                .getDatabase(getApplication()
+                .getApplicationContext())
                 .filmeNowPlayingDao();
         dao.deleteAll();
         dao.insert(filmeNowPlayingResult.getResults());

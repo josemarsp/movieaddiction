@@ -4,7 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
-import br.com.josef.movieaddiction.model.data.Database;
+import br.com.josef.movieaddiction.model.data.DatabaseFilme;
 import br.com.josef.movieaddiction.model.data.FilmeDao;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 import io.reactivex.Flowable;
@@ -20,7 +20,7 @@ public class FilmeIdRepository {
 
     // Pega os dados do banco de dados local
     public Flowable<List<Filme>> getLocalResults(Context context){
-        Database room = Database.getDatabase(context);
+        DatabaseFilme room = DatabaseFilme.getDatabase(context);
         FilmeDao filmeDao = room.filmeDao();
         return filmeDao.getAll();
     }

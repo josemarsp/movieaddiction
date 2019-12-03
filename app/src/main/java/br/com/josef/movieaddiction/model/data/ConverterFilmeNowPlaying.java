@@ -56,7 +56,7 @@ public class ConverterFilmeNowPlaying {
         return gson.toJson(list);
     }
 
-   // Converter um List<Long> para o formato Json
+   // ConverterFilme um List<Long> para o formato Json
     @TypeConverter
     public List<Long> fromListGenre(String value){
         Type listType = (Type) new TypeToken<List<Long>>(){
@@ -91,7 +91,7 @@ public class ConverterFilmeNowPlaying {
 //        return gson.toJson(list);
 //    }
 
-    //Converter um List<Genre> para o formato Json
+    //ConverterFilme um List<Genre> para o formato Json
 //    @TypeConverter
 //    public  List<Genre> fromListGenre(String value){
 //        Type listType = (Type) new TypeToken<List<Genre>>(){
@@ -106,7 +106,7 @@ public class ConverterFilmeNowPlaying {
 //        return gson.toJson(listGenre);
 //    }
 //
-//    //Converter um List<ProductionCompany> para o formato Json
+//    //ConverterFilme um List<ProductionCompany> para o formato Json
 //    @TypeConverter
 //    public  List<ProductionCompany> fromListProductionCompany(String valueProdCompany){
 //        Type listType = (Type) new TypeToken<List<ProductionCompany>>(){
@@ -121,7 +121,7 @@ public class ConverterFilmeNowPlaying {
 //        return gson.toJson(listProductionCompany);
 //    }
 //
-//    //Converter um List<ProductionCountry> para o formato Json
+//    //ConverterFilme um List<ProductionCountry> para o formato Json
 //    @TypeConverter
 //    public  List<ProductionCountry> fromListProductionCountry(String valueProdCountry){
 //        Type listType = (Type) new TypeToken<List<ProductionCountry>>(){
@@ -136,7 +136,7 @@ public class ConverterFilmeNowPlaying {
 //        return gson.toJson(listProductionCountry);
 //    }
 //
-//    //Converter um List<SpokenLanguage> para o formato Json
+//    //ConverterFilme um List<SpokenLanguage> para o formato Json
 //    @TypeConverter
 //    public  List<SpokenLanguage> fromListSpokenLanguage(String valueSpokenLanguage){
 //        Type listType = (Type) new TypeToken<List<SpokenLanguage>>(){

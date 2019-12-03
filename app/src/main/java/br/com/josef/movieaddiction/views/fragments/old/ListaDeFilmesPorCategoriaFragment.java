@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.adapter.AdapterCategoriaRetorno;
+import br.com.josef.movieaddiction.views.adapter.old.AdapterCategoriaRetorno;
 import br.com.josef.movieaddiction.model.pojos.old.CategoriasListas;
 import br.com.josef.movieaddiction.model.pojos.old.FilmesModel;
 import br.com.josef.movieaddiction.views.fragments.ResultadoFilmeFragment;

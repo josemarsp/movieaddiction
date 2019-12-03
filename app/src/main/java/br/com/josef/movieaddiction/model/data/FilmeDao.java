@@ -13,8 +13,6 @@ import io.reactivex.Flowable;
 @Dao
 public interface FilmeDao {
 
-
-
     /**No método de insert temos o onConflict
      * onConflict: é um conjunto de estratégias de tratamento de conflitos, nesse caso estamos usando o REPLACE
      * ou seja o OnConflict irá substituir os dados antigos pelos novos e continuar a transação.
@@ -22,6 +20,9 @@ public interface FilmeDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(List<Filme> filmes);
+
+    @Insert
+    void insert(Filme filme);
 
     @Query("Delete from filme")
     void deleteAll();

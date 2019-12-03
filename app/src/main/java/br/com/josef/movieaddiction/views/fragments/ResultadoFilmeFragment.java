@@ -1,7 +1,6 @@
 package br.com.josef.movieaddiction.views.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.squareup.picasso.Picasso;
@@ -21,18 +18,18 @@ import java.math.BigDecimal;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 import br.com.josef.movieaddiction.model.pojos.movieid.Genre;
+import br.com.josef.movieaddiction.vielmodel.FavoritoViewModel;
 import br.com.josef.movieaddiction.vielmodel.FilmeViewModel;
-import br.com.josef.movieaddiction.views.activity.GeralProVideoActivity;
-import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmeAssistidosFragment;
-import br.com.josef.movieaddiction.views.fragments.old.ListaDeFilmesNaoAssistidosFragment;
+import br.com.josef.movieaddiction.views.interfaces.OnClickFavoritos;
 
 import static br.com.josef.movieaddiction.views.fragments.HomeFragment.API_KEY;
+import static br.com.josef.movieaddiction.views.fragments.HomeFragment.BANNER_ID_KEY;
 import static br.com.josef.movieaddiction.views.fragments.HomeFragment.MOVIE_ID_KEY;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResultadoFilmeFragment extends Fragment {
+public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos {
     private Filme filme;
     private ImageView imagemFilme;
     private TextView nomeFilme;
@@ -47,6 +44,7 @@ public class ResultadoFilmeFragment extends Fragment {
     private TextView orcamento;
     private TextView idioma;
     private FilmeViewModel viewModel;
+    private FavoritoViewModel favoritoViewModel;
     //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
 //esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
     private ImageView iconeNaoAssitido;
@@ -67,12 +65,13 @@ public class ResultadoFilmeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultado_filme, container, false);
 
         initViews(view);
-        //initIcons();
+        initIcons(view);
 
         if (getArguments() != null) {
 
-            String bundle = getArguments().getString(MOVIE_ID_KEY);
-            int bundleId = Integer.parseInt(bundle);
+            String bannerFilme = getArguments().getString(BANNER_ID_KEY);
+            String filmeID = getArguments().getString(MOVIE_ID_KEY);
+            int bundleId = Integer.parseInt(filmeID);
             viewModel.getFilmeId(bundleId, API_KEY);
 
             viewModel.getFilme().observe(this, filme1 -> {
@@ -159,13 +158,18 @@ public class ResultadoFilmeFragment extends Fragment {
                 String[] data = filme.getReleaseDate().split("-");
                 anoDeLancamento.setText(data[2] + "/" + data[1] + "/" + data[0]);
 
+
                 if (filme.getBackdropPath() == null || filme.getBackdropPath().isEmpty()) {
                     Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getPosterPath()).into(imagemFilme);
+
                 } else {
                     Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
                 }
 
             });
+            if (!imagemFilme.isActivated()) {
+                Picasso.get().load("https://image.tmdb.org/t/p/w500/" + bannerFilme).into(imagemFilme);
+            }
 
 
         }
@@ -175,63 +179,19 @@ public class ResultadoFilmeFragment extends Fragment {
 
     }
 
-    private void initIcons() {
-        iconeJaAssistido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                // bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
-                Fragment fragment = new ListaDeFilmeAssistidosFragment();
-                fragment.setArguments(bundle);
+    private void initIcons(View view) {
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.containerPrincipal, fragment);
-                t.addToBackStack(null);
-                t.commit();
-            }
-        });
 
-        iconeNaoAssitido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                //  bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
-                Fragment fragment = new ListaDeFilmesNaoAssistidosFragment();
-                fragment.setArguments(bundle);
+//        iconeTrailler.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//            }
+//        });
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.containerPrincipal, fragment);
-                t.addToBackStack(null);
-                t.commit();
-            }
-        });
+        
 
-        iconeTrailler.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), GeralProVideoActivity.class);
-                // intent.putExtra(FILME_KEY, filme);
-                startActivity(intent);
-            }
-        });
-
-        iconeFavorito.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Bundle bundle = new Bundle();
-                //bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
-                Fragment fragment = new ListaDeFavoritosFragment();
-                fragment.setArguments(bundle);
-
-                FragmentManager fragmentManager = ResultadoFilmeFragment.this.getActivity().getSupportFragmentManager();
-                FragmentTransaction t = fragmentManager.beginTransaction();
-                t.replace(R.id.containerPrincipal, fragment);
-                t.commit();
-
-            }
+        iconeFavorito.setOnClickListener(v -> {
+            favoritoViewModel.insereFilme(filme);
         });
     }
 
@@ -248,9 +208,30 @@ public class ResultadoFilmeFragment extends Fragment {
         orcamento = view.findViewById(R.id.textBudget);
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
-        iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
+        //iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
         viewModel = ViewModelProviders.of(this).get(FilmeViewModel.class);
+        favoritoViewModel = ViewModelProviders.of(this).get(FavoritoViewModel.class);
+
 
     }
 
-}
+    @Override
+    public void onClickFavoritos(Filme filme) {
+
+    }
+
+
+//     iconeJaAssistido.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            Bundle bundle = new Bundle();
+//            // bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
+//            Fragment fragment = new ListaDeFilmeAssistidosFragment();
+//            fragment.setArguments(bundle);
+//
+//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction t = fragmentManager.beginTransaction();
+//            t.replace(R.id.containerPrincipal, fragment);
+//            t.addToBackStack(null);
+//            t.commit();
+        }

@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.adapter;
+package br.com.josef.movieaddiction.views.adapter.old;
 
 import android.view.LayoutInflater;
 import android.view.View;

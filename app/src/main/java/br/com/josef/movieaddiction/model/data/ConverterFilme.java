@@ -20,10 +20,10 @@ import br.com.josef.movieaddiction.model.pojos.movieid.SpokenLanguage;
  * lembrando que a classe serve para convertermos tipos de dados
  * como por exemplo converter um dado do tipo Long pata Date
  * e um dado do tipo Date para long
- * a classe converter também deve ser declarada na classe Database
+ * a classe converter também deve ser declarada na classe DatabaseFilme
  */
 
-public class Converter {
+public class ConverterFilme {
 
     @TypeConverter
     public Date toDate(Long timestamp) {
@@ -85,7 +85,7 @@ public class Converter {
         return gson.toJson(list);
     }
 
-    //Converter um List<Genre> para o formato Json
+    //ConverterFilme um List<Genre> para o formato Json
     @TypeConverter
     public  List<Genre> fromListGenre(String value){
         Type listType = (Type) new TypeToken<List<Genre>>(){
@@ -100,7 +100,7 @@ public class Converter {
         return gson.toJson(listGenre);
     }
 
-    //Converter um List<ProductionCompany> para o formato Json
+    //ConverterFilme um List<ProductionCompany> para o formato Json
     @TypeConverter
     public  List<ProductionCompany> fromListProductionCompany(String valueProdCompany){
         Type listType = (Type) new TypeToken<List<ProductionCompany>>(){
@@ -115,7 +115,7 @@ public class Converter {
         return gson.toJson(listProductionCompany);
     }
 
-    //Converter um List<ProductionCountry> para o formato Json
+    //ConverterFilme um List<ProductionCountry> para o formato Json
     @TypeConverter
     public  List<ProductionCountry> fromListProductionCountry(String valueProdCountry){
         Type listType = (Type) new TypeToken<List<ProductionCountry>>(){
@@ -130,7 +130,7 @@ public class Converter {
         return gson.toJson(listProductionCountry);
     }
 
-    //Converter um List<SpokenLanguage> para o formato Json
+    //ConverterFilme um List<SpokenLanguage> para o formato Json
     @TypeConverter
     public  List<SpokenLanguage> fromListSpokenLanguage(String valueSpokenLanguage){
         Type listType = (Type) new TypeToken<List<SpokenLanguage>>(){

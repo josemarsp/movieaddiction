@@ -1,23 +1,28 @@
-package br.com.josef.movieaddiction.adapter;
-import android.graphics.drawable.Drawable;
+package br.com.josef.movieaddiction.views.adapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFavoritos;
-import br.com.josef.movieaddiction.model.pojos.old.FavoritosModel;
+import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
+import br.com.josef.movieaddiction.views.interfaces.OnClickFavoritos;
 
-public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.ViewHolder> {
+public class RecyclerViewFavoritosAdapter extends RecyclerView.Adapter<RecyclerViewFavoritosAdapter.ViewHolder> {
 
-    private RVOnClickFavoritos listener;
-    private List<FavoritosModel> listaFavoritos;
+    private OnClickFavoritos listener;
+    private List<Filme> listaFavoritos;
 
-    public FavoritosAdapter(RVOnClickFavoritos listener, List<FavoritosModel> listaFavoritos) {
+    public RecyclerViewFavoritosAdapter(OnClickFavoritos listener, List<Filme> listaFavoritos) {
         this.listener = listener;
         this.listaFavoritos = listaFavoritos;
     }
@@ -31,13 +36,11 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final FavoritosModel favoritosModel = listaFavoritos.get(position);
-        holder.onBind(favoritosModel);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onClickFavoritos(favoritosModel);
-            }
+        final Filme favoritos = listaFavoritos.get(position);
+        holder.onBind(favoritos);
+
+        holder.itemView.setOnClickListener(view -> {
+            listener.onClickFavoritos(favoritos);
         });
 
     }
@@ -46,6 +49,16 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.View
     public int getItemCount() {
         return listaFavoritos.size();
     }
+
+    public void atualizaLista(List<Filme> novaLista) {
+        if (this.listaFavoritos.isEmpty()) {
+            this.listaFavoritos = novaLista;
+        } else {
+            this.listaFavoritos.addAll(novaLista);
+        }
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView capaDoFilme;
@@ -61,12 +74,15 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.View
             descricaoDoFilme = itemView.findViewById(R.id.textView_descricao_favoritos_id);
         }
 
-        public void onBind(FavoritosModel favoritosModel) {
-            Drawable drawable = itemView.getResources().getDrawable(favoritosModel.getCapaDoFilme());
-            capaDoFilme.setImageDrawable(drawable);
-            notaDoFilme.setText(favoritosModel.getNotaDoFilme());
-            nomeDoFilme.setText(favoritosModel.getNomeDoFilme());
-            descricaoDoFilme.setText(favoritosModel.getDescricaoDoFilme());
+        public void onBind(Filme filme) {
+            notaDoFilme.setText(filme.getVoteAverage().toString());
+            nomeDoFilme.setText(filme.getTitle());
+            descricaoDoFilme.setText(filme.getOverview());
+
+            Picasso.get().load("https://image.tmdb.org/t/p/w200/" + filme.getPosterPath()).into(capaDoFilme);
+
+
         }
     }
+
 }

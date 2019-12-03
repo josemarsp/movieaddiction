@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.adapter.AtoresAdapter;
+import br.com.josef.movieaddiction.views.adapter.old.AtoresAdapter;
 import br.com.josef.movieaddiction.model.pojos.old.AtoresModel;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickAtores;
 

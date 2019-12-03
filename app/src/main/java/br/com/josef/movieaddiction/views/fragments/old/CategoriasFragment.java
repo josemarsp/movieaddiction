@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.adapter.AdapterCategoria;
+import br.com.josef.movieaddiction.views.adapter.old.AdapterCategoria;
 import br.com.josef.movieaddiction.model.pojos.old.CategoriasListas;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickCategorias;
 

@@ -1,4 +1,4 @@
-package br.com.josef.movieaddiction.adapter;
+package br.com.josef.movieaddiction.views.adapter.old;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -10,36 +10,37 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesAssistidos;
-import br.com.josef.movieaddiction.model.pojos.old.FilmesAssistidosModel;
+import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesNaoAssistidos;
+import br.com.josef.movieaddiction.model.pojos.old.FilmesNaoAssistidosModel;
 
-public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDeFilmesAssistidosAdapter.ViewHolder>{
-    private RVOnClickFilmesAssistidos listener;
-    private List<FilmesAssistidosModel> listaFilmesAssistidos;
+public class ListaDeFilmesNaoAssistidosAdapter extends RecyclerView.Adapter<ListaDeFilmesNaoAssistidosAdapter.ViewHolder>{
+    private RVOnClickFilmesNaoAssistidos listener;
+    private List<FilmesNaoAssistidosModel> listaFilmesNaoAssistidos;
 
-    public ListaDeFilmesAssistidosAdapter(RVOnClickFilmesAssistidos listener, List<FilmesAssistidosModel>listaFilmesAssistidos){
+    public ListaDeFilmesNaoAssistidosAdapter(RVOnClickFilmesNaoAssistidos listener, ArrayList<FilmesNaoAssistidosModel> listaFilmesNaoAssistidos){
         this.listener = listener;
-        this.listaFilmesAssistidos = listaFilmesAssistidos;
+        this.listaFilmesNaoAssistidos = listaFilmesNaoAssistidos;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ListaDeFilmesNaoAssistidosAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_do_item_da_lista_filmes_assistidos,parent,false);
-        return new ViewHolder(view);
+        return new ListaDeFilmesNaoAssistidosAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final FilmesAssistidosModel filmesAssistidosModel = listaFilmesAssistidos.get(position);
-        holder.onBind(filmesAssistidosModel);
+    public void onBindViewHolder(@NonNull ListaDeFilmesNaoAssistidosAdapter.ViewHolder holder, int position) {
+        final FilmesNaoAssistidosModel filmesNaoAssistidosModel = listaFilmesNaoAssistidos.get(position);
+        holder.onBind(filmesNaoAssistidosModel);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onClickFilmesAssistidos(filmesAssistidosModel);
+                listener.onClickFilmesNaoAssistidos(filmesNaoAssistidosModel);
             }
         });
 
@@ -47,7 +48,7 @@ public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDe
 
     @Override
     public int getItemCount() {
-        return listaFilmesAssistidos.size();
+        return listaFilmesNaoAssistidos.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +67,7 @@ public class ListaDeFilmesAssistidosAdapter extends RecyclerView.Adapter<ListaDe
             descricaoDoFilme = itemView.findViewById(R.id.textView_descricao_filme_assistido_id);
         }
 
-        public void onBind(FilmesAssistidosModel filmesAssistidosModel) {
+        public void onBind(FilmesNaoAssistidosModel filmesAssistidosModel) {
             Drawable drawable = itemView.getResources().getDrawable(filmesAssistidosModel.getCapaDoFilme());
             capaDoFilme.setImageDrawable(drawable);
             notaDoFilme.setText(filmesAssistidosModel.getNotaDoFilme());

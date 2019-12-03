@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
     private int pagina = 1;
     public static final String API_KEY = "140f376accaf2e163abf3cd16ef3f0b4";
     public static final String MOVIE_ID_KEY = "movieIdKey";
+    public static final String BANNER_ID_KEY = "bannerIdKey";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -79,6 +80,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
 
         Bundle bundle = new Bundle();
         bundle.putString(MOVIE_ID_KEY, String.valueOf(filmeNowPlaying.getId()));
+        bundle.putString(BANNER_ID_KEY, filmeNowPlaying.getBackdropPath());
         // bundle.putParcelable(FILME_KEY, filmeNowPlaying);
         Fragment resultadoFilmeFragment = new ResultadoFilmeFragment();
         resultadoFilmeFragment.setArguments(bundle);
@@ -148,8 +150,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
 //                    R.drawable.hobbit,
 //                    "O Hobbit",
 //                    "Teste",
-//                    "todo",
-//                    "todo",
+//
 //                    "2019",
 //                    "5 minutos",
 //                    "50 anos",

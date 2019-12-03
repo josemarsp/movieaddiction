@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import br.com.josef.movieaddiction.R;
-import br.com.josef.movieaddiction.adapter.ListaDeFilmesAssistidosAdapter;
+import br.com.josef.movieaddiction.views.adapter.old.ListaDeFilmesAssistidosAdapter;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmesAssistidos;
 import br.com.josef.movieaddiction.model.pojos.old.FilmesAssistidosModel;
 
