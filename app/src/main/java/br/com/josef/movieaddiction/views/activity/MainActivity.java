@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void autenticacaoGoogle(GoogleSignInAccount conta) {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(getApplicationContext(), PrincipalActivity.class);
         intent.putExtra(GOOGLE_ACCOUNT, conta);
         startActivity(intent);
         finish();
@@ -203,5 +203,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
-
