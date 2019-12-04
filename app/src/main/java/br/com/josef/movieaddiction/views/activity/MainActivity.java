@@ -1,30 +1,34 @@
 package br.com.josef.movieaddiction.views.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.util.AppUtil;
@@ -36,8 +40,12 @@ public class MainActivity extends AppCompatActivity {
     public Button btnLogin;
 
     public Button btnFacebookMain;
-    public Button btnGoogleMain;
     public CallbackManager callbackManager;
+
+    private static final int RC_SIGN_IN = 1001;
+    public Button btnGoogleMain;
+    private GoogleSignInClient googleSignInClient;
+    public static final String GOOGLE_ACCOUNT = "google_account";
 
 
     private String email, senha;
@@ -48,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         initViews();
-
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -61,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
         btnGoogleMain.setOnClickListener(v -> loginGoogle());
 
         AppUtil.printKeyHash(this);
-
     }
-
 
     private void initViews() {
         btnLogin = findViewById(R.id.mainBtnLogin);
@@ -98,7 +103,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loginGoogle() {
-        // TODO: Login Google
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        btnGoogleMain.setOnClickListener(view -> {
+            Intent signInIntent = googleSignInClient.getSignInIntent();
+
+            startActivityForResult(signInIntent, 101);
+        });
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        GoogleSignInAccount alreadyLoggedAccount = GoogleSignIn.getLastSignedInAccount(this);
+
+        if (alreadyLoggedAccount != null) {
+            Toast.makeText(this, "Você já está logado", Toast.LENGTH_SHORT).show();
+            autenticacaoGoogle(alreadyLoggedAccount);
+        } else {
+            Toast.makeText(this, "Entre em alguma conta", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -107,7 +138,13 @@ public class MainActivity extends AppCompatActivity {
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                irParaHome(loginResult.getAccessToken().getUserId());
+                AuthCredential credential = FacebookAuthProvider
+                        .getCredential(loginResult.getAccessToken().getToken());
+
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(task -> {
+                            irParaHome(loginResult.getAccessToken().getUserId());
+                        });
             }
 
             @Override
@@ -128,8 +165,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private void autenticacaoGoogle(GoogleSignInAccount account) {
-        // TODO: autenticar com google e ir para home
+    private void autenticacaoGoogle(GoogleSignInAccount conta) {
+        Intent intent = new Intent(this, PrincipalActivity.class);
+        intent.putExtra(GOOGLE_ACCOUNT, conta);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -138,20 +178,29 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        // TODO: validar requestcode para google
-//        if (requestCode == RC_SIGN_IN) {
-//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-//            if (result.isSuccess()) {
-//                GoogleSignInAccount account = result.getSignInAccount();
-//                autenticacaoGoogle(account);
-//            }
-//        }
-//        private void setFragment (Fragment fragment){
-//            FragmentManager fragmentManager = getSupportFragmentManager();
-//            FragmentTransaction t = fragmentManager.beginTransaction();
-//            t.replace(R.id.containerPrincipal, fragment);
-//            t.commit();
-//        }
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                GoogleSignInAccount account = result.getSignInAccount();
+                autenticacaoGoogle(account);
+            }
+        }
+
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case 101:
+                    try {
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                        GoogleSignInAccount conta = task.getResult(ApiException.class);
+                        autenticacaoGoogle(conta);
+
+                    } catch (ApiException e) {
+                        Log.i("LOG", "Error: " + e.getMessage());
+                        Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+            }
+        }
     }
 }
 
