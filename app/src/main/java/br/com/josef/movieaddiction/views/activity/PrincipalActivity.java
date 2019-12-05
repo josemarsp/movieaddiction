@@ -1,5 +1,6 @@
 package br.com.josef.movieaddiction.views.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,7 +75,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         if (id == R.id.sair) {
 
-            finish();
+            sairContaGoogle();
 
             return true;
         }
@@ -84,6 +85,8 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
 
+
+
     private void replaceFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.containerPrincipal, fragment);
@@ -91,6 +94,12 @@ public class PrincipalActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    public void sairContaGoogle(){
+        Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
 
 
 //    private void initViews() {

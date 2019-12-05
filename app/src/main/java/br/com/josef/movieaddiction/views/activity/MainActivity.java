@@ -1,39 +1,52 @@
 package br.com.josef.movieaddiction.views.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
 import br.com.josef.movieaddiction.R;
+import br.com.josef.movieaddiction.util.AppUtil;
 
 public class MainActivity extends AppCompatActivity {
-
-
     public TextInputLayout txtEmailMain;
     public TextInputLayout txtSenhaMain;
     public Button btnREg;
     public Button btnLogin;
+
     public Button btnFacebookMain;
+    public CallbackManager callbackManager;
+
+    private static final int RC_SIGN_IN = 1001;
     public Button btnGoogleMain;
-    private ImageView imagemHobbit;
+    private GoogleSignInClient googleSignInClient;
+    public static final String GOOGLE_ACCOUNT = "google_account";
 
-
-    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
-    private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-    private Matcher matcher;
 
     private String email, senha;
 
@@ -42,133 +55,151 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        initViews();
 
+        callbackManager = CallbackManager.Factory.create();
+
+        btnREg.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CadastroActivity.class)));
+
+        btnLogin.setOnClickListener(v -> loginEmail());
+
+        btnFacebookMain.setOnClickListener(v -> loginFacebook());
+
+        btnGoogleMain.setOnClickListener(v -> loginGoogle());
+
+        AppUtil.printKeyHash(this);
+    }
+
+    private void initViews() {
+        btnLogin = findViewById(R.id.mainBtnLogin);
+        btnFacebookMain = findViewById(R.id.mainBtnFacebook);
+        btnGoogleMain = findViewById(R.id.mainBtnGoogle);
         txtEmailMain = findViewById(R.id.mainTxtEmail);
         txtSenhaMain = findViewById(R.id.mainTxtSenha);
         btnREg = findViewById(R.id.mainBtnRegistre);
-        btnFacebookMain = findViewById((R.id.mainBtnFacebook));
-        btnGoogleMain = findViewById(R.id.mainBtnGoogle);
-
-        //RETIRAR APOS FINALIZAR
-        Snackbar.make(txtEmailMain, "PRESSIONE LOGIN \n VALIDACAO DESABILITADA! ", Snackbar.LENGTH_LONG).show();
-
-        btnREg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(MainActivity.this, CadastroActivity.class));
-
-            }
-        });
-
-        btnLogin = findViewById(R.id.mainBtnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //desabilitado para não ter que digitar sempre
-                //validarCampos();
-
-                //ao finalizar projeto , remover esta linha
-
-
-                startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
-
-                /* código anterior
-                String localemailMain = (txtEmailMain).getEditText().getText().toString();
-                String localsenhaMain = (txtSenhaMain).getEditText().getText().toString();
-
-                if(!localemailMain.isEmpty() && !localsenhaMain.isEmpty()) {
-
-
-                    Intent intent = getIntent();
-
-                    //Verificação para saber se o intent que está chegando não é null e não possui dados nulos
-                    if (getIntent() != null && intent.getExtras() != null) {
-
-                        //Variavel do tipo bundle que recebe as informações vindas do Intent
-                        Bundle bundle = intent.getExtras();
-
-
-                        String emails = bundle.getString(EMAIL_KEY_CAD);
-                        String senhas = bundle.getString(SENHA_KEY_CAD);
-
-
-                        if (localemailMain == emails && localsenhaMain == senhas) {
-                            startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
-                        } else {
-                            Snackbar.make(txtEmailMain, "E-mail ou senha incorretos", Snackbar.LENGTH_LONG).show();
-                        }
-
-                    } else {
-                        txtEmailMain.setError("Email ou senha inválidos");
-                    }
-
-                }else{
-                    Snackbar.make(txtEmailMain, "Email ou senha não pode ser vazio", Snackbar.LENGTH_LONG).show();
-                }
-            */
-
-            }
-        });
-
-        btnFacebookMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(txtEmailMain, "Login via Facebook não disponível no momento!", Snackbar.LENGTH_LONG).show();
-            }
-        });
-
-        btnGoogleMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(txtEmailMain, "Login via Google não disponível no momento!", Snackbar.LENGTH_LONG).show();
-            }
-        });
-
-
     }
 
-    private void setFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction t = fragmentManager.beginTransaction();
-        t.replace(R.id.containerPrincipal, fragment);
-        t.commit();
-    }
+    public void loginEmail() {
 
+        String email = txtEmailMain.getEditText().getText().toString();
+        String password = txtSenhaMain.getEditText().getText().toString();
 
-    public void validarCampos(){
-        txtEmailMain.setErrorEnabled(false);
-        txtSenhaMain.setErrorEnabled(false);
-
-        email = txtEmailMain.getEditText().getText().toString().trim();
-        senha = txtSenhaMain.getEditText().getText().toString().trim();
-
-        if (!validateEmail(email) && !validatePassword(senha)) {
-            txtEmailMain.setError("Digite um e-mail válido");
-            txtSenhaMain.setError("Sua senha deve ter pelo menos 6 caractéres!");
-        } else if (!validatePassword(senha)) {
-            txtSenhaMain.setError("Sua senha deve ter pelo menos 6 caractéres!");
-            txtEmailMain.setErrorEnabled(false);
-        } else if(!validateEmail(email)){
-            txtEmailMain.setError("Digite um e-mail válido");
-            txtSenhaMain.setErrorEnabled(false);
-        }else{
-
-            txtEmailMain.setErrorEnabled(false);
-            txtSenhaMain.setErrorEnabled(false);
-
-            startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
-
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Campos não podem ser vazios :(", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-    }
-    public boolean validateEmail(String email) {
-        matcher = pattern.matcher(email);
-        return matcher.matches();
+        // tentamos fazer o login com o email e senha no firebase
+        FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        irParaHome(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    } else {
+                        Snackbar.make(btnLogin, task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
+                    }
+                });
+
     }
 
-    public boolean validatePassword(String password) {
-        return password.length() > 5;
+    private void loginGoogle() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        btnGoogleMain.setOnClickListener(view -> {
+            Intent signInIntent = googleSignInClient.getSignInIntent();
+
+            startActivityForResult(signInIntent, 101);
+        });
+
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        GoogleSignInAccount alreadyLoggedAccount = GoogleSignIn.getLastSignedInAccount(this);
+
+        if (alreadyLoggedAccount != null) {
+            Toast.makeText(this, "Você já está logado", Toast.LENGTH_SHORT).show();
+            autenticacaoGoogle(alreadyLoggedAccount);
+        } else {
+            Toast.makeText(this, "Entre em alguma conta", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void loginFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                AuthCredential credential = FacebookAuthProvider
+                        .getCredential(loginResult.getAccessToken().getToken());
+
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(task -> {
+                            irParaHome(loginResult.getAccessToken().getUserId());
+                        });
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(MainActivity.this, "Cancelado", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void irParaHome(String uiid) {
+        AppUtil.salvarIdUsuario(getApplication().getApplicationContext(), uiid);
+        startActivity(new Intent(getApplicationContext(), PrincipalActivity.class));
+        finish();
+    }
+
+    private void autenticacaoGoogle(GoogleSignInAccount conta) {
+        Intent intent = new Intent(getApplicationContext(), PrincipalActivity.class);
+        intent.putExtra(GOOGLE_ACCOUNT, conta);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                GoogleSignInAccount account = result.getSignInAccount();
+                autenticacaoGoogle(account);
+            }
+        }
+
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case 101:
+                    try {
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                        GoogleSignInAccount conta = task.getResult(ApiException.class);
+                        autenticacaoGoogle(conta);
+
+                    } catch (ApiException e) {
+                        Log.i("LOG", "Error: " + e.getMessage());
+                        Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+            }
+        }
+    }
 }
