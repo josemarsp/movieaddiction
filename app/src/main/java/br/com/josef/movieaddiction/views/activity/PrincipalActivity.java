@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.fragments.HomeFragment;
@@ -18,6 +23,7 @@ import br.com.josef.movieaddiction.views.fragments.ListaDeFavoritosFragment;
 import br.com.josef.movieaddiction.views.fragments.PerfilInternoFragment;
 
 public class PrincipalActivity extends AppCompatActivity {
+
 
    // private BottomNavigationView bottomNavigationView;
     //FragmentManager fragmentManager;
@@ -75,7 +81,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         if (id == R.id.sair) {
 
-            sairContaGoogle();
+            deslogar();
 
             return true;
         }
@@ -94,12 +100,14 @@ public class PrincipalActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void sairContaGoogle(){
+    public void deslogar(){
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
         Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
-    }
+        }
 
 
 //    private void initViews() {

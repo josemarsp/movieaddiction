@@ -125,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInAccount alreadyLoggedAccount = GoogleSignIn.getLastSignedInAccount(this);
 
         if (alreadyLoggedAccount != null) {
-            Toast.makeText(this, "Você já está logado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Você já está logado", Toast.LENGTH_LONG).show();
             autenticacaoGoogle(alreadyLoggedAccount);
         } else {
-            Toast.makeText(this, "Entre em alguma conta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Entre em alguma conta", Toast.LENGTH_LONG).show();
         }
     }
 
