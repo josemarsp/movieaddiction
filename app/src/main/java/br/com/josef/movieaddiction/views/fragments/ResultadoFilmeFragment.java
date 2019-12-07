@@ -1,6 +1,8 @@
 package br.com.josef.movieaddiction.views.fragments;
 
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -47,8 +49,9 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
     private FavoritoViewModel favoritoViewModel;
     public static final String LINGUA_PAIS_KEY = "pt-BR";
     private ImageView iconeFavorito;
-
     private ImageView iconeCompartilhar;
+    private View coracaoCheio;
+    private View coracaoVazio;
     private ImageView iconeTrailler;
 
     public ResultadoFilmeFragment() {
@@ -63,7 +66,6 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
         View view = inflater.inflate(R.layout.fragment_resultado_filme, container, false);
 
         initViews(view);
-
 
         if (getArguments() != null) {
 
@@ -185,15 +187,26 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
             if (!imagemFilme.isActivated()) {
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + bannerFilme).into(imagemFilme);
             }
-
-
         }
+
+        iconeCompartilhar.setOnClickListener(view1 -> {
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Acredito que você se interessaria pelo filme: " + nomeFilme.getText().toString() +"." +  " Sinopse: " + sinopseDoFilme.getText().toString();
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        });
 
         return view;
 
-
     }
 
+    private void mudarCoracao() {
+        iconeFavorito.setImageResource(R.drawable.favoritos_selecionado);
+    }
+
+
+    @SuppressLint("ResourceType")
     public void initViews(View view) {
         imagemFilme = view.findViewById(R.id.imagemFilmeDetalhe);
         nomeFilme = view.findViewById(R.id.nomeDetalheFilme_id);
@@ -207,11 +220,12 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
         orcamento = view.findViewById(R.id.textBudget);
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
-
         //iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
         viewModel = ViewModelProviders.of(this).get(FilmeViewModel.class);
         favoritoViewModel = ViewModelProviders.of(this).get(FavoritoViewModel.class);
-
+        coracaoVazio = view.findViewById(R.drawable.favoritos_nao_selecionado);
+        coracaoCheio = view.findViewById(R.drawable.favoritos_selecionado);
+        iconeCompartilhar = view.findViewById(R.id.icon_share_id);
 
     }
 
