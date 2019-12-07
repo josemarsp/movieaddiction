@@ -8,12 +8,13 @@ import retrofit2.http.Query;
 
 /*
 @Query para campos chamadas nominais
-@Path para campos diretos. Ex: @Path("language") String lingua
+@Path para campos diretos.
  */
 public interface FilmeNowPlayingAPI {
 
     @GET("movie/now_playing")
     Observable<FilmeNowPlayingResult> getAllFilmeNowPlaying(@Query("api_key") String apiKEY,
+                                                            @Query("language") String linguaPais,
                                                             @Query("page") int pagina);
 
 

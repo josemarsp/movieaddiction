@@ -24,6 +24,8 @@ import br.com.josef.movieaddiction.vielmodel.FilmeViewModel;
 import br.com.josef.movieaddiction.views.adapter.RecyclerViewFilmeAdapter;
 import br.com.josef.movieaddiction.views.interfaces.OnClickFilmePlayingNow;
 
+import static br.com.josef.movieaddiction.views.fragments.ResultadoFilmeFragment.LINGUA_PAIS_KEY;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +58,7 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         setScrollView();
 
-        viewModel.getFilmesEmCartaz(API_KEY, pagina);
+        viewModel.getFilmesEmCartaz(API_KEY, LINGUA_PAIS_KEY, pagina);
 
         viewModel.getListaFilme().observe(this, resultadoLista -> {
             adapter.atualizaLista(resultadoLista);
@@ -128,47 +130,12 @@ public class HomeFragment extends Fragment implements OnClickFilmePlayingNow {
 
                 if (totalItemCount > 0 && ultimoItem) {
                     pagina++;
-                    viewModel.getAllFilmesNowPlaying(API_KEY, pagina);
+                    viewModel.getAllFilmesNowPlaying(API_KEY, LINGUA_PAIS_KEY, pagina);
                 }
             }
         });
 
     }
-
-//    old code//
-
-    //    public static HomeFragment newInstance() {
-//        HomeFragment homeFragment = new HomeFragment();
-//        return homeFragment;
-//    }
-
-
-//    view.findViewById(R.id.imageView_hobbit_id).setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            FilmesModel model = new FilmesModel(
-//                    R.drawable.hobbit,
-//                    "O Hobbit",
-//                    "Teste",
-//
-//                    "2019",
-//                    "5 minutos",
-//                    "50 anos",
-//                    "infantil",
-//                    "https://www.youtube.com/watch?v=nOGsB9dORBg&t=47s"
-//            );
-//
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, model);
-//            ResultadoFilmeFragment fragment = new ResultadoFilmeFragment();
-//            fragment.setArguments(bundle);
-//
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction t = fragmentManager.beginTransaction();
-//            t.replace(R.id.conainter_principal_id, fragment);
-//            t.commit();
-//        }
-//    });
 
 
 }

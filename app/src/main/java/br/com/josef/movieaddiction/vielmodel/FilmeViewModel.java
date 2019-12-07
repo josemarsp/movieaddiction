@@ -48,9 +48,9 @@ public class FilmeViewModel extends AndroidViewModel {
         return this.loading;
     }
 
-    public void getFilmesEmCartaz(String apiKey, int pagina) {
+    public void getFilmesEmCartaz(String apiKey,String linguaPais, int pagina) {
         if (isNetworkConnected(getApplication())) {
-            getAllFilmesNowPlaying(apiKey, pagina);
+            getAllFilmesNowPlaying(apiKey, linguaPais, pagina);
         } else {
             getFromLocal();
         }
@@ -58,9 +58,9 @@ public class FilmeViewModel extends AndroidViewModel {
     }
 
 
-    public void getAllFilmesNowPlaying(String apiKey, int pagina) {
+    public void getAllFilmesNowPlaying(String apiKey, String linguaPais, int pagina) {
         disposable.add(
-                repository.getFilmeNowPlaying(apiKey, pagina)
+                repository.getFilmeNowPlaying(apiKey, linguaPais,pagina)
                         .subscribeOn(Schedulers.io())
                         .map(this::saveItems)
                         .observeOn(AndroidSchedulers.mainThread())
@@ -85,9 +85,9 @@ public class FilmeViewModel extends AndroidViewModel {
         return filmeNowPlayingResult;
     }
 
-    public void getFilmeId(int movie_id, String apiKey) {
+    public void getFilmeId(int movie_id, String apiKey, String linguaPais) {
         disposable.add(
-                idRepository.getFilmeId(movie_id, apiKey)
+                idRepository.getFilmeId(movie_id, apiKey, linguaPais)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))

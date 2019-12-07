@@ -1,6 +1,7 @@
 package br.com.josef.movieaddiction.views.fragments;
 
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,6 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
     private ImageView imagemFilme;
     private TextView nomeFilme;
     private TextView sinopseDoFilme;
-    private TextView elencoDoFilme;
     private TextView notaDoFilme;
     private TextView anoDeLancamento;
     private TextView tempoDeDuracao;
@@ -43,16 +43,13 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
     private TextView slogan;
     private TextView bilheteria;
     private TextView orcamento;
-    private TextView idioma;
     private FilmeViewModel viewModel;
     private FavoritoViewModel favoritoViewModel;
-    //todos esses atributos acima serao retornados atraves da API e exibidos nesse fragmento
-//esse atributos de baixo nao retornam da API esses a gente tem que fazer a logica especifica
-    private ImageView iconeNaoAssitido;
-    private ImageView iconeJaAssistido;
-    private ImageView iconeTrailler;
+    public static final String LINGUA_PAIS_KEY = "pt-BR";
     private ImageView iconeFavorito;
+
     private ImageView iconeCompartilhar;
+    private ImageView iconeTrailler;
 
     public ResultadoFilmeFragment() {
         // Required empty public constructor
@@ -68,13 +65,12 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
         initViews(view);
 
 
-
         if (getArguments() != null) {
 
             String bannerFilme = getArguments().getString(BANNER_ID_KEY);
             String filmeID = getArguments().getString(MOVIE_ID_KEY);
             int bundleId = Integer.parseInt(filmeID);
-            viewModel.getFilmeId(bundleId, API_KEY);
+            viewModel.getFilmeId(bundleId, API_KEY, LINGUA_PAIS_KEY);
 
             viewModel.getFilme().observe(this, filme1 -> {
                 Filme filme = new Filme(
@@ -170,15 +166,25 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
 
                 iconeFavorito.setOnClickListener(v -> {
                     favoritoViewModel.insereFilme(filme);
-                    Toast.makeText(getContext(),"Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
+
+                    favoritoViewModel.getFilmeBoolean().observe(this, aBoolean -> {
+                        Boolean bool = aBoolean;
+                        if (bool) {
+                            Drawable drawable = getResources().getDrawable(R.drawable.ic_favorite_black_24dp);
+                            iconeFavorito.setImageDrawable(drawable);
+
+                        }
+
+                    });
+
+
+                    Toast.makeText(getContext(), "Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
                 });
 
             });
             if (!imagemFilme.isActivated()) {
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + bannerFilme).into(imagemFilme);
             }
-
-
 
 
         }
@@ -201,6 +207,7 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
         orcamento = view.findViewById(R.id.textBudget);
         iconeTrailler = view.findViewById(R.id.icon_trailer_id);
         iconeFavorito = view.findViewById(R.id.icon_favorito_id);
+
         //iconeCompartilhar = view.findViewById(R.id.icon_favorito_id);
         viewModel = ViewModelProviders.of(this).get(FilmeViewModel.class);
         favoritoViewModel = ViewModelProviders.of(this).get(FavoritoViewModel.class);
@@ -213,18 +220,10 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
 
     }
 
+    @Override
+    public void removeClickFavoritos(Filme filme) {
 
-//     iconeJaAssistido.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            Bundle bundle = new Bundle();
-//            // bundle.putParcelable(PesquisaFilmesFragment.FILME_KEY, filme);
-//            Fragment fragment = new ListaDeFilmeAssistidosFragment();
-//            fragment.setArguments(bundle);
-//
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction t = fragmentManager.beginTransaction();
-//            t.replace(R.id.containerPrincipal, fragment);
-//            t.addToBackStack(null);
-//            t.commit();
-        }
+    }
+
+
+}

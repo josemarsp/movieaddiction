@@ -23,6 +23,7 @@ public class FavoritoViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<Filme>> listaFilme = new MutableLiveData<>();
     private MutableLiveData<Filme> filme = new MutableLiveData<>();
+    private MutableLiveData<Boolean> filmeBoolean = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
     private FilmeIdRepository repository = new FilmeIdRepository();
@@ -42,6 +43,10 @@ public class FavoritoViewModel extends AndroidViewModel {
         return this.filme;
     }
 
+    public LiveData<Boolean> getFilmeBoolean() {
+        return this.filmeBoolean;
+    }
+
 
     public void insereFilme(Filme filmeobj) {
         new Thread(() -> {
@@ -50,6 +55,18 @@ public class FavoritoViewModel extends AndroidViewModel {
             }
         }).start();
         this.filme.setValue(filmeobj);
+        filmeBoolean.setValue(true);
+    }
+
+    public void deletaFilme(Filme filme) {
+        new Thread(() -> {
+            if (filme != null) {
+                filmeDao.deleteFavorite(filme);
+
+            }
+        }).start();
+        this.filme.setValue(filme);
+        filmeBoolean.setValue(false);
     }
 
     public void buscaFavoritos() {
@@ -66,6 +83,9 @@ public class FavoritoViewModel extends AndroidViewModel {
                                 })
         );
     }
+
+
+
 
     @Override
     protected void onCleared() {

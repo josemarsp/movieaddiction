@@ -39,9 +39,8 @@ public class RecyclerViewFavoritosAdapter extends RecyclerView.Adapter<RecyclerV
         final Filme favoritos = listaFavoritos.get(position);
         holder.onBind(favoritos);
 
-        holder.itemView.setOnClickListener(view -> {
-            listener.onClickFavoritos(favoritos);
-        });
+        holder.itemView.setOnClickListener(view -> listener.onClickFavoritos(favoritos));
+        holder.iconeLixeira.setOnClickListener(view -> listener.removeClickFavoritos(favoritos));
 
     }
 
@@ -65,6 +64,7 @@ public class RecyclerViewFavoritosAdapter extends RecyclerView.Adapter<RecyclerV
         public TextView notaDoFilme;
         public TextView nomeDoFilme;
         public TextView descricaoDoFilme;
+        public ImageView iconeLixeira;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,12 +72,14 @@ public class RecyclerViewFavoritosAdapter extends RecyclerView.Adapter<RecyclerV
             nomeDoFilme = itemView.findViewById(R.id.textView_titulo_favoritos_id);
             notaDoFilme = itemView.findViewById(R.id.textView_rating_nota_favoritos_id);
             descricaoDoFilme = itemView.findViewById(R.id.textView_descricao_favoritos_id);
+            iconeLixeira = itemView.findViewById(R.id.iconeLixeira);
         }
 
         public void onBind(Filme filme) {
             notaDoFilme.setText(filme.getVoteAverage().toString());
             nomeDoFilme.setText(filme.getTitle());
             descricaoDoFilme.setText(filme.getOverview());
+
 
             Picasso.get().load("https://image.tmdb.org/t/p/w200/" + filme.getPosterPath()).into(capaDoFilme);
 

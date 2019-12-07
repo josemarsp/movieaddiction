@@ -17,8 +17,8 @@ import static br.com.josef.movieaddiction.model.data.remote.FilmeNowPlayingRetro
 
 public class FilmeNowPlayingRepository {
 
-    public Observable<FilmeNowPlayingResult> getFilmeNowPlaying(String apiKey, int pagina) {
-        return getApiService().getAllFilmeNowPlaying(apiKey, pagina);
+    public Observable<FilmeNowPlayingResult> getFilmeNowPlaying(String apiKey, String linguaPais, int pagina) {
+        return getApiService().getAllFilmeNowPlaying(apiKey, linguaPais, pagina);
     }
 
     //dados locais

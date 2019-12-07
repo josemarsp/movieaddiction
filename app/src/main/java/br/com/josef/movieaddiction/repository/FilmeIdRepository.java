@@ -14,8 +14,8 @@ import static br.com.josef.movieaddiction.model.data.remote.FilmeIdRetrofitServi
 
 public class FilmeIdRepository {
 
-    public Observable<Filme> getFilmeId(int movie_id, String apiKey) {
-        return getApiService().getFilm(movie_id, apiKey);
+    public Observable<Filme> getFilmeId(int movie_id, String apiKey, String linguaPais) {
+        return getApiService().getFilm(movie_id, apiKey, linguaPais);
     }
 
     // Pega os dados do banco de dados local

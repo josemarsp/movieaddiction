@@ -1,6 +1,7 @@
 package br.com.josef.movieaddiction.model.data;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -13,7 +14,8 @@ import io.reactivex.Flowable;
 @Dao
 public interface FilmeDao {
 
-    /**No método de insert temos o onConflict
+    /**
+     * No método de insert temos o onConflict
      * onConflict: é um conjunto de estratégias de tratamento de conflitos, nesse caso estamos usando o REPLACE
      * ou seja o OnConflict irá substituir os dados antigos pelos novos e continuar a transação.
      */
@@ -27,9 +29,15 @@ public interface FilmeDao {
     @Query("Delete from filme")
     void deleteAll();
 
-    //Método que retorna uma consulta do banco com um limite de 30 itens
-    @Query("Select * from filme limit 30")
+    //Método que retorna uma consulta do banco com um limite de 80 itens
+    @Query("Select * from filme limit 80")
     Flowable<List<Filme>> getAll(); // Aqui retornamos um Flowable que é o observavel para o ROOM DATABASE
+
+    @Delete
+    void deleteFavorite(Filme filme);
+
+//    @Query("Select filme.id from filme")
+//    Boolean getFilmeNoBD(Filme filme);
 
 
 }
