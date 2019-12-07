@@ -27,10 +27,12 @@ import br.com.josef.movieaddiction.views.interfaces.OnClickFavoritos;
 public class ListaDeFavoritosFragment extends Fragment implements OnClickFavoritos {
 
     private ImageView iconeLixeira;
+    public static final String TOTAL_KEY = "total_key";
     private RecyclerViewFavoritosAdapter adapter;
     private RecyclerView recyclerView;
     private FavoritoViewModel viewModel;
     private List<Filme> listaDeFavoritos = new ArrayList<>();
+    private int totalLista;
 
 
     @Nullable
@@ -47,11 +49,27 @@ public class ListaDeFavoritosFragment extends Fragment implements OnClickFavorit
 
         viewModel.getListaFilme().observe(this, filmes -> {
             adapter.atualizaLista(filmes);
+
+//            contagemLista();
+//            enviandoContagemPPerfil();
         });
 
 
         return view;
     }
+
+//    private void enviandoContagemPPerfil() {
+//
+//        Fragment fragment = new Fragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(TOTAL_KEY, totalLista);
+//        fragment.setArguments(bundle);
+//
+//    }
+//
+//    private void contagemLista() {
+//        int totalLista = adapter.getItemCount();
+//    }
 
 
     public void initView(View view) {

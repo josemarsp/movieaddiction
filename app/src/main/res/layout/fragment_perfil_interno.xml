@@ -1,128 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
 
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.PerfilInternoFragment"
-    android:background="#000">
+    android:fillViewport="true">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/item_foto"
-        android:layout_width="171dp"
-        android:layout_height="174dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/background_black"
-        android:src="@drawable/emma"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.fragments.PerfilInternoFragment"
+        android:background="#000">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="355dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/shapebutton"
-        android:textColorHint="@color/colorTitulos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_foto">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_foto_profile_id"
+            android:layout_width="171dp"
+            android:layout_height="174dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/background_black"
+            android:src="@drawable/assistido"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
-        <com.google.android.material.textfield.TextInputEditText
+            />
+
+        <TextView
+            android:id="@+id/tv_fragment_perfil_nome_usuario_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome"
-            android:textColor="@color/colorTitulos"
-            android:textColorHint="#fff" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Olá, Movie Addicted!"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:background="@drawable/background_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_foto_profile_id" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="355dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/shapebutton"
-        android:textColorHint="@color/colorTitulos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/tv_fragment_perfil_email_usuario_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColorHint="#fff" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Você não possui email cadastrado"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:background="@drawable/background_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fragment_perfil_nome_usuario_id" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/shapebutton"
-        android:textColorHint="@color/colorTitulos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/tv_fragment_perfil_qtd_filmes_favoritados_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Senha"
-            android:inputType="textPassword"
-            android:textColorHint="#fff" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textSize="16dp"
+            android:text="Você ainda não favoritou nenhum filme!"
+            android:background="@drawable/background_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fragment_perfil_email_usuario_id" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/shapebutton"
-        android:textColorHint="@color/colorTitulos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        <!--    <TextView-->
+        <!--        android:id="@+id/tv_fragment_perfil_frase_aleatoria_filme_id"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginStart="32dp"-->
+        <!--        android:layout_marginLeft="32dp"-->
+        <!--        android:layout_marginTop="32dp"-->
+        <!--        android:layout_marginEnd="32dp"-->
+        <!--        android:layout_marginRight="32dp"-->
+        <!--        android:text="Qual a frase de um filme que mais te marcou?"-->
+        <!--        android:textSize="18dp"-->
+        <!--        android:inputType="textMultiLine"-->
+        <!--        android:textAlignment="center"-->
+        <!--        android:textColor="@color/purple"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/tv_fragment_perfil_qtd_filmes_favoritados_id" />-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Idade"
-            android:inputType="number"/>
-    </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="127dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="198dp"
-        android:layout_marginLeft="198dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="199dp"
-        android:layout_marginRight="199dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/shapebutton"
-        android:text="Salvar"
-        android:textColor="#1F1F1F"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

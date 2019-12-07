@@ -23,6 +23,7 @@ public class FavoritoViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<Filme>> listaFilme = new MutableLiveData<>();
     private MutableLiveData<Filme> filme = new MutableLiveData<>();
+    private MutableLiveData<Integer> filmeCont = new MutableLiveData<>();
     private MutableLiveData<Boolean> filmeBoolean = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -41,6 +42,11 @@ public class FavoritoViewModel extends AndroidViewModel {
 
     public LiveData<Filme> getFilme() {
         return this.filme;
+    }
+
+
+    public LiveData<Integer> getFilmeCont() {
+        return this.filmeCont;
     }
 
     public LiveData<Boolean> getFilmeBoolean() {
@@ -84,7 +90,21 @@ public class FavoritoViewModel extends AndroidViewModel {
         );
     }
 
+    public void contaFilme() {
+        disposable.add(
+                filmeDao.getContFilme()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(integer -> {
+                            filmeCont.setValue(integer);
+                        },
+                                throwable -> {
+                                    Log.i("LOG", "Falha Contagem Filme" + throwable.getMessage());
 
+                                }
+                        )
+        );
+    }
 
 
     @Override

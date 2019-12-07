@@ -30,11 +30,16 @@ public interface FilmeDao {
     void deleteAll();
 
     //Método que retorna uma consulta do banco com um limite de 80 itens
-    @Query("Select * from filme limit 80")
+
+
+    @Query("Select * from filme ORDER by Filme.bdId desc")
     Flowable<List<Filme>> getAll(); // Aqui retornamos um Flowable que é o observavel para o ROOM DATABASE
 
     @Delete
     void deleteFavorite(Filme filme);
+
+    @Query("SELECT COUNT(filme.bdId) FROM filme")
+    Flowable<Integer> getContFilme();
 
 //    @Query("Select filme.id from filme")
 //    Boolean getFilmeNoBD(Filme filme);

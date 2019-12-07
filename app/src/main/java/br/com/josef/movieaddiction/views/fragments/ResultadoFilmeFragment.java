@@ -174,12 +174,9 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
                         if (bool) {
                             Drawable drawable = getResources().getDrawable(R.drawable.ic_favorite_black_24dp);
                             iconeFavorito.setImageDrawable(drawable);
-
                         }
 
                     });
-
-
                     Toast.makeText(getContext(), "Filme salvo nos favoritos", Toast.LENGTH_SHORT).show();
                 });
 
