@@ -13,5 +13,6 @@ public interface FilmeIdAPI {
 
     @GET("movie/{movie_id}")
     Observable<Filme> getFilm(@Path("movie_id") int movieId,
-                                @Query("api_key") String apiKey);
+                                @Query("api_key") String apiKey,
+                              @Query("language") String linguaPais);
  }
