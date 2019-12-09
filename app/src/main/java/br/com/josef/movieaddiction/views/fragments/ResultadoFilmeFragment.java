@@ -172,8 +172,7 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
                     favoritoViewModel.getFilmeBoolean().observe(this, aBoolean -> {
                         Boolean bool = aBoolean;
                         if (bool) {
-                            Drawable drawable = getResources().getDrawable(R.drawable.ic_favorite_black_24dp);
-                            iconeFavorito.setImageDrawable(drawable);
+                            mudarIconeCoracaoParaCheio();
                         }
 
                     });
@@ -198,7 +197,7 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
 
     }
 
-    private void mudarCoracao() {
+    private void mudarIconeCoracaoParaCheio() {
         iconeFavorito.setImageResource(R.drawable.favoritos_selecionado);
     }
 

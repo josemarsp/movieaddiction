@@ -48,15 +48,7 @@ public class PerfilInternoFragment extends Fragment {
     private String totalKeyString;
     private FavoritoViewModel viewModel;
 
-//todo: depois que a ariel resolver o email do firebase:
-// --> no firebase: vai no firebase
 
-// >storage
-// >deixar como publico na regra
-// >escolher um servidor
-// >mudar as regras no rules
-// >tirar a opcao q ele soh pode fazer algo se estiver logado
-// >publicar
 
 
     public PerfilInternoFragment() {
@@ -86,8 +78,8 @@ public class PerfilInternoFragment extends Fragment {
         if (user != null) {
             //nomeUser.setText("Olá " +  user.getDisplayName() + "!");
             nomeUser.setText("Olá Movie Addicted!");
-            emailUser.setText(user.getEmail());
-        }
+            emailUser.setText(user.getEmail());}
+
         //  imageViewProfile.setImageURI(user.getPhotoUrl());
 
         imageViewProfile.setOnClickListener(v -> {

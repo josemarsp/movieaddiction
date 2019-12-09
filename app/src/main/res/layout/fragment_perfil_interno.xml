@@ -16,13 +16,16 @@
         tools:context=".views.fragments.PerfilInternoFragment"
         android:background="#000">
 
+
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_foto_profile_id"
             android:layout_width="171dp"
             android:layout_height="174dp"
             android:layout_marginTop="40dp"
             android:background="@color/background_black"
-            android:src="@drawable/assistido"
+            android:src="@drawable/starwars"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +61,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="Você não possui email cadastrado"
+            android:text="Você já assistiu algum filme hoje?"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#fff"
