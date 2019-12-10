@@ -27,4 +27,7 @@ public class FilmeNowPlayingRepository {
         FilmeNowPlayingDao filmeNowPlayingDao = room.filmeNowPlayingDao();
         return filmeNowPlayingDao.getAll();
     }
+
+
+
 }
