@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +24,8 @@ import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
 import br.com.josef.movieaddiction.vielmodel.FavoritoViewModel;
 import br.com.josef.movieaddiction.views.adapter.RecyclerViewFavoritosAdapter;
 import br.com.josef.movieaddiction.views.interfaces.OnClickFavoritos;
+
+import static br.com.josef.movieaddiction.views.fragments.HomeFragment.MOVIE_ID_KEY;
 
 public class ListaDeFavoritosFragment extends Fragment implements OnClickFavoritos {
 
@@ -66,8 +69,20 @@ public class ListaDeFavoritosFragment extends Fragment implements OnClickFavorit
 
     @Override
     public void onClickFavoritos(Filme filme) {
-
+        Bundle bundle = new Bundle();
+        bundle.putString(MOVIE_ID_KEY, String.valueOf(filme.getId()));
+        Fragment resultadoFilmeFragment = new ResultadoFilmeFragment();
+        resultadoFilmeFragment.setArguments(bundle);
+        replaceFragment(resultadoFilmeFragment);
     }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.containerPrincipal, fragment);
+        transaction.commit();
+    }
+
 
     @Override
     public void removeClickFavoritos(Filme filme) {
