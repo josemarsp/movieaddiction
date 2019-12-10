@@ -9,16 +9,16 @@
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search" />
+        android:title="Busca" />
 
     <item
         android:id="@+id/navigation_minha_lista"
         android:icon="@drawable/favoritos_selecionado"
-        android:title="Favorites" />
+        android:title="Favoritos" />
 
     <item
         android:id="@+id/navigation_perfil"
         android:icon="@drawable/ic_paparazzi_24dp"
-        android:title="Profile" />
+        android:title="Perfil" />
 
 </menu>

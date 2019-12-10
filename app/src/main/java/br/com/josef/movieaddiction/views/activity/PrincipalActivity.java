@@ -1,10 +1,12 @@
 package br.com.josef.movieaddiction.views.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -108,6 +110,25 @@ public class PrincipalActivity extends AppCompatActivity {
         finish();
         }
 
+        @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.assistido);
+        builder.setTitle("Sair");
+        builder.setMessage("Já está quase dormindo e deseja sair? zzzzzzzzzzz");
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+
+        })
+                .setNegativeButton("Não", null)
+                .show();
+    }
+}
 
 //    private void initViews() {
 //        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
@@ -159,4 +180,4 @@ public class PrincipalActivity extends AppCompatActivity {
 
 */
 
-}
+

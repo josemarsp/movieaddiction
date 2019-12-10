@@ -121,8 +121,13 @@ public class PerfilInternoFragment extends Fragment {
         viewModel.getFilmeCont().observe(this, integer -> {
                     totalKeyInt = integer;
             totalKeyString = Integer.toString(totalKeyInt);
-            contadorFavoritos.setText("Você tem " + totalKeyString + " filmes favoritados!");
-                }
+            if(totalKeyInt == 1){
+            contadorFavoritos.setText("Você tem " + totalKeyString + " filme favoritado!");
+                } else {
+                contadorFavoritos.setText("Você tem " + totalKeyString + " filmes favoritados!");
+            }
+
+            }
 
         );
 
