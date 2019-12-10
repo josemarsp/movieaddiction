@@ -25,7 +25,7 @@ import br.com.josef.movieaddiction.views.fragments.SearchFragment;
 public class PrincipalActivity extends AppCompatActivity {
 
 
-   // private BottomNavigationView bottomNavigationView;
+    // private BottomNavigationView bottomNavigationView;
     //FragmentManager fragmentManager;
 
 
@@ -40,7 +40,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //     initViews();
 
-      //  bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        //  bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // fragmentManager = getSupportFragmentManager();
         // fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new HomeFragment()).commit();
@@ -52,19 +52,19 @@ public class PrincipalActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
 
-            if (id == R.id.navigation_home){
+            if (id == R.id.navigation_home) {
                 replaceFragment(new HomeFragment());
 
-            }else if(id == R.id.navigation_minha_lista){
+            } else if (id == R.id.navigation_minha_lista) {
                 replaceFragment(new ListaDeFavoritosFragment());
 
-            }else if(id == R.id.navigation_search){
+            } else if (id == R.id.navigation_search) {
                 replaceFragment(new SearchFragment());
 
-            }else if(id == R.id.navigation_perfil){
+            } else if (id == R.id.navigation_perfil) {
                 replaceFragment(new PerfilInternoFragment());
             }
-                return true;
+            return true;
 
         });
 
@@ -101,33 +101,15 @@ public class PrincipalActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void deslogar(){
+    public void deslogar() {
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
         Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
-        }
-
-        @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setIcon(R.drawable.assistido);
-        builder.setTitle("Sair");
-        builder.setMessage("Já está quase dormindo e deseja sair? zzzzzzzzzzz");
-        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-
-        })
-                .setNegativeButton("Não", null)
-                .show();
     }
+
 }
 
 //    private void initViews() {
