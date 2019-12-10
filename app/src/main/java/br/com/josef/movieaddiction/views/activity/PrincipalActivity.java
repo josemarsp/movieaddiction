@@ -18,6 +18,7 @@ import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.views.fragments.HomeFragment;
 import br.com.josef.movieaddiction.views.fragments.ListaDeFavoritosFragment;
 import br.com.josef.movieaddiction.views.fragments.PerfilInternoFragment;
+import br.com.josef.movieaddiction.views.fragments.SearchFragment;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class PrincipalActivity extends AppCompatActivity {
         // fragmentManager.beginTransaction().replace(R.id.recyclerViewFilmes, new HomeFragment()).commit();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_minha_lista, R.id.navigation_perfil)
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_minha_lista, R.id.navigation_perfil)
                 .build();
 
         navView.setOnNavigationItemSelectedListener(menuItem -> {
@@ -54,6 +55,9 @@ public class PrincipalActivity extends AppCompatActivity {
 
             }else if(id == R.id.navigation_minha_lista){
                 replaceFragment(new ListaDeFavoritosFragment());
+
+            }else if(id == R.id.navigation_search){
+                replaceFragment(new SearchFragment());
 
             }else if(id == R.id.navigation_perfil){
                 replaceFragment(new PerfilInternoFragment());

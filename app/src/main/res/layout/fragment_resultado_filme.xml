@@ -26,21 +26,20 @@
 
         <TextView
             android:id="@+id/nomeDetalheFilme_id"
-            android:layout_width="352dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="50dp"
             android:inputType="textMultiLine"
-            tools:text="Nome do filme"
             android:textColor="@color/purple"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/icon_trailer_id"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textGeneroDetalhe_id"
-            />
+            tools:text="Nome do filme" />
 
         <ImageView
             android:id="@+id/iconeRating"
@@ -84,13 +83,14 @@
 
         <TextView
             android:id="@+id/textview_titulo_da_slogan"
-            android:layout_width="351dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="50dp"
             android:textColor="@color/purple"
             android:textSize="13sp"
             android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomeDetalheFilme_id"
             tools:text="Slogan" />
@@ -100,13 +100,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="8dp"
+            android:justificationMode="inter_word"
             android:textColor="@color/gray"
             android:textSize="16sp"
-            android:justificationMode="inter_word"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -142,14 +140,15 @@
 
         <TextView
             android:id="@+id/textGeneroDetalhe_id"
-            android:layout_width="353dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="50dp"
             android:background="@color/background_black"
             android:textColor="@color/purple"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textAno_id"
             tools:text="Aventura" />

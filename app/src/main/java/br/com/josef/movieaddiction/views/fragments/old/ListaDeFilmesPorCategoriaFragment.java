@@ -24,7 +24,7 @@ import br.com.josef.movieaddiction.views.fragments.ResultadoFilmeFragment;
 import br.com.josef.movieaddiction.views.interfaces.old.RVOnClickFilmes;
 
 import static br.com.josef.movieaddiction.views.fragments.old.CategoriasFragment.CATEGORIA_KEY;
-import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.old.PesquisaFilmesFragment.FILME_KEY;
 
 /**
  * A simple {@link Fragment} subclass.

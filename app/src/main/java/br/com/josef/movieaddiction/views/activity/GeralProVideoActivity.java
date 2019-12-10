@@ -15,7 +15,7 @@ import android.webkit.WebViewClient;
 import br.com.josef.movieaddiction.R;
 import br.com.josef.movieaddiction.model.pojos.old.FilmesModel;
 
-import static br.com.josef.movieaddiction.views.fragments.PesquisaFilmesFragment.FILME_KEY;
+import static br.com.josef.movieaddiction.views.fragments.old.PesquisaFilmesFragment.FILME_KEY;
 
 public class GeralProVideoActivity extends AppCompatActivity {
 
