@@ -41,7 +41,10 @@ public interface FilmeDao {
     @Query("SELECT COUNT(filme.bdId) FROM filme")
     Flowable<Integer> getContFilme();
 
-//    @Query("Select filme.id from filme")
+    @Query("SELECT COUNT(*) FROM filme where id = :idFilme")
+    Flowable<Boolean> getChecaFilme(long idFilme);
+
+
 //    Boolean getFilmeNoBD(Filme filme);
 
 

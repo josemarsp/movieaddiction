@@ -166,6 +166,20 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
                     Picasso.get().load("https://image.tmdb.org/t/p/w500/" + filme.getBackdropPath()).into(imagemFilme);
                 }
 
+
+                //Long xpto = filme.getId();
+                favoritoViewModel.checaFilme(filme.getId());
+                favoritoViewModel.getFilmeBoolean().observe(this, aBoolean -> {
+                    Boolean bool = aBoolean;
+                    if (bool) {
+                        mudarIconeCoracaoParaCheio();
+                    }
+
+                });
+                //:TODO Se o filme está nos Favoritos, não deixar repetir e clicar
+                //:TODO Melhorar o código
+                //:TODO colocar coração na busca
+
                 iconeFavorito.setOnClickListener(v -> {
                     favoritoViewModel.insereFilme(filme);
 
@@ -183,12 +197,17 @@ public class ResultadoFilmeFragment extends Fragment implements OnClickFavoritos
             if (!imagemFilme.isActivated()) {
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + bannerFilme).into(imagemFilme);
             }
+
         }
+
+        //  Verifica se o Filme já é favorito
+
+
 
         iconeCompartilhar.setOnClickListener(view1 -> {
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            String shareBody = "Acredito que você se interessaria pelo filme: " + nomeFilme.getText().toString() +"." +  " Sinopse: " + sinopseDoFilme.getText().toString();
+            String shareBody = "Acredito que você se interessaria pelo filme: " + nomeFilme.getText().toString() + "." + " Sinopse: " + sinopseDoFilme.getText().toString();
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
         });

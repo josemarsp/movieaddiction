@@ -44,7 +44,6 @@ public class FavoritoViewModel extends AndroidViewModel {
         return this.filme;
     }
 
-
     public LiveData<Integer> getFilmeCont() {
         return this.filmeCont;
     }
@@ -75,6 +74,7 @@ public class FavoritoViewModel extends AndroidViewModel {
         filmeBoolean.setValue(false);
     }
 
+
     public void buscaFavoritos() {
         disposable.add(
                 filmeDao.getAll()
@@ -96,10 +96,29 @@ public class FavoritoViewModel extends AndroidViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(integer -> {
-                            filmeCont.setValue(integer);
-                        },
+                                    filmeCont.setValue(integer);
+                                },
                                 throwable -> {
                                     Log.i("LOG", "Falha Contagem Filme" + throwable.getMessage());
+
+                                }
+                        )
+        );
+
+    }
+
+    public void checaFilme(Long idFilme) {
+        disposable.add(
+                filmeDao.getChecaFilme(idFilme)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(filmeBoo -> {
+                                    filmeBoolean.setValue(filmeBoo);
+
+
+                                },
+                                throwable -> {
+                                    Log.i("LOG", "Falha Checa Filme" + throwable.getMessage());
 
                                 }
                         )

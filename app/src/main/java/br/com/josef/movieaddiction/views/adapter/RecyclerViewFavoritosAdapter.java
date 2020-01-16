@@ -88,3 +88,11 @@ public class RecyclerViewFavoritosAdapter extends RecyclerView.Adapter<RecyclerV
     }
 
 }
+
+
+
+
+
+
+
+

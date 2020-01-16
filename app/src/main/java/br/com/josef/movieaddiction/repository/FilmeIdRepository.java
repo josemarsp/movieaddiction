@@ -6,9 +6,7 @@ import java.util.List;
 
 import br.com.josef.movieaddiction.model.data.DatabaseFilme;
 import br.com.josef.movieaddiction.model.data.FilmeDao;
-import br.com.josef.movieaddiction.model.data.remote.SearchRetrofitService;
 import br.com.josef.movieaddiction.model.pojos.movieid.Filme;
-import br.com.josef.movieaddiction.model.pojos.searchmovies.SearchResult;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 
